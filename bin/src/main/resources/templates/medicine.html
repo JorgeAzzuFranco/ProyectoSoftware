@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Medicine</title>
+</head>
+<body>
+    <h1>Medicine</h1>
+    <table class="table table-bordered">
+        <thead class="header-panel">
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Dosis</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Descripcion</th>
+        </thead>
+        <tbody>
+        <th:block th:each="medicine, row: ${medicineList}">
+            <tr>
+                <th scope="row" th:text="${medicine.id}" ></th>
+                <td th:text="${medicine.name}"></td>
+                <td th:text="${medicine.dose}"></td>
+                <td th:text="${medicine.quantity}"></td>
+                <td th:text="${medicine.description}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+</body>
+</html>
