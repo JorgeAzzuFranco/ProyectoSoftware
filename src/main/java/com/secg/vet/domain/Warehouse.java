@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(schema="public",name="almacen")
-public class Almacen {
+public class Warehouse {
 
     @Id
     @GeneratedValue(generator = "almacen_id_seq", strategy = GenerationType.AUTO)

@@ -1,9 +1,9 @@
 package com.secg.vet.repositories;
 
-import com.secg.vet.domain.Almacen;
+import com.secg.vet.domain.Warehouse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AlmacenRepository extends JpaRepository<Almacen,Integer> {
+public interface WarehouseRepository extends JpaRepository<Warehouse,Integer> {
 }
