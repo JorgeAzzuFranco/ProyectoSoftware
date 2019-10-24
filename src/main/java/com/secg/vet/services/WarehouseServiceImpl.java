@@ -3,9 +3,11 @@ package com.secg.vet.services;
 import com.secg.vet.domain.Warehouse;
 import com.secg.vet.repositories.WarehouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class WarehouseServiceImpl implements WarehouseService {
 
     @Autowired
