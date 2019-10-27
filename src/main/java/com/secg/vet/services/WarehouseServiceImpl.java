@@ -23,4 +23,9 @@ public class WarehouseServiceImpl implements WarehouseService {
         return warehouseRepository.getOne(id);
     }
 
+    @Override
+    public void insertProduct(Warehouse warehouse) {
+        warehouseRepository.save(warehouse);
+    }
+
 }
