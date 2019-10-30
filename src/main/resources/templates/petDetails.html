@@ -6,20 +6,19 @@
     <title>Detalles de Mascota</title>
 </head>
 <body>
-    <h1>Detalles de ${pet.name}</h1>
+    <h1>Detalles de <span th:text="${pet.name}"/></h1>
     <div class="container">
-        <p><b>Raza:</b> Aguacatero Quemado. </p>
+        <p><b>Raza:</b> Aguacaterrier </p>
         <p><b>Edad:</b> 3 a&ntilde;os (21 a&ntilde;os perrunos) Quemado. </p>
         <p><b>Peso:</b> 20 Kg Quemado. </p>
         <p><b>Diagnostico:</b> Guapetura grado 1.</p>
 
         <h3>Medicinas proporcionadas</h3>
         <ul>
-            <th:block th:each="medicine, row: ${medicineList}">
-            <li>${medicine.name}</li>
+            <th:block th:each="medicine, row: ${pet.medicineList}">
+            <li th:text="${medicine.name}"></li>
             </th:block>
         </ul>
-
     </div>
     <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
 </body>

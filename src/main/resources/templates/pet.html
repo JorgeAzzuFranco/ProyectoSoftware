@@ -13,6 +13,7 @@ Hola Mascotas.
     <th>Nombre</th>
     <th>Duenio</th>
     <th>Razon</th>
+    <th>Ver</th>
     </thead>
     <th:block th:each="pet, row: ${petList}">
         <tr>
@@ -20,6 +21,7 @@ Hola Mascotas.
             <th th:text="${pet.name}"></th>
             <th> Duenio </th>
             <th th:text="${pet.description}"></th>
+            <th><button th:onclick="'window.location.href=\'/petDetails?id=' + ${pet.id} + '\''">Detalles</button></th>
         </tr>
     </th:block>
 </table>

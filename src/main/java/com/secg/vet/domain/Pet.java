@@ -1,9 +1,7 @@
 package com.secg.vet.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="mascota")
@@ -15,6 +13,8 @@ public class Pet {
     private String name;
     @Column(name="razon")
     private String description;
+    @OneToMany(mappedBy = "mascXMed", fetch = FetchType.LAZY)
+    private List<Medicine> medicineList;
 
     public Pet() {
     }
@@ -47,5 +47,13 @@ public class Pet {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Medicine> getMedicineList() {
+        return medicineList;
+    }
+
+    public void setMedicineList(List<Medicine> medicineList) {
+        this.medicineList = medicineList;
     }
 }

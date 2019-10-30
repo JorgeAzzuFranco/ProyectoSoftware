@@ -19,16 +19,19 @@ public class Medicine {
     private Integer quantity;
     @Column(name="descripcion")
     private String description;
+    @Column(name = "mascxmed")
+    private Integer mascXMed;
 
     public Medicine() {
     }
 
-    public Medicine(Integer id, String name, String dose, Integer quantity, String description) {
+    public Medicine(Integer id, String name, String dose, Integer quantity, String description, Integer mascXMed) {
         this.id = id;
         this.name = name;
         this.dose = dose;
         this.quantity = quantity;
         this.description = description;
+        this.mascXMed = mascXMed;
     }
 
     public Integer getId() {
@@ -69,5 +72,13 @@ public class Medicine {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getMascXMed() {
+        return mascXMed;
+    }
+
+    public void setMascXMed(Integer mascXMed) {
+        this.mascXMed = mascXMed;
     }
 }
