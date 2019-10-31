@@ -22,4 +22,12 @@ public class MedicineServiceImpl implements MedicineService {
     public Medicine findOne(Integer id) {
         return medicineRepository.getOne(id);
     }
+
+    @Override
+    public void addMedicine(Integer id, String medicine, Integer quantity, String dose) {
+        Medicine m = new Medicine(medicine, dose, quantity, id);
+        medicineRepository.save(m);
+    }
+
+
 }

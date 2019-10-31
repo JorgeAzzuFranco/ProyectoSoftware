@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <meta charset="UTF-8">
+    <title>A&ntilde;adir Medicina</title>
+</head>
+<body>
+    <h1>A&ntilde;adir Medicina a <span th:text="${pet.name}"></span></h1>
+    <form method="post" action="/addMedicine">
+        <input type="hidden" name="id" th:value="${pet.id}">
+        <label for="medicine">Nombre de medicamento </label>
+        <input type="text" id="medicine" name="medicine"/>
+        <br>
+        <label for="quantity">Cantidad </label>
+        <input type="number" id="quantity" name="quantity">
+        <br>
+        <label for="dose">Dosis </label>
+        <select name="dose" id="dose">
+            <option value="Una vez al d&iacute;a"> Una vez al d&iacute;a</option>
+            <option value="Dos veces al d&iacute;a">Dos veces al d&iacute;a</option>
+            <option value="cada 4 horas">Cada 4 horas</option>
+            <option value="cada 6 horas">Cada 6 horas</option>
+            <option value="cada 8 horas">Cada 8 horas</option>
+        </select>
+        <br>
+        <input type="submit" th:value="Guardar"/>
+    </form>
+    <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.secg.vet.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,16 +14,49 @@ public class Pet {
     private String name;
     @Column(name="razon")
     private String description;
+    @Column(name="raza")
+    private String race;
+    @Column(name="fnac")
+    private Date birthDate;
+    @Column(name = "peso")
+    private Double weight;
     @OneToMany(mappedBy = "mascXMed", fetch = FetchType.LAZY)
     private List<Medicine> medicineList;
 
     public Pet() {
     }
 
-    public Pet(Integer id, String name, String description) {
+    public Pet(Integer id, String name, String description, String race, Date birthDate, Double weight) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.race = race;
+        this.birthDate = birthDate;
+        this.weight = weight;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
     }
 
     public Integer getId() {

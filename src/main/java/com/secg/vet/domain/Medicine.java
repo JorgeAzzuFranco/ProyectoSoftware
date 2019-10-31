@@ -1,15 +1,14 @@
 package com.secg.vet.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="medicina")
 public class Medicine {
 
     @Id
+    @GeneratedValue(generator = "medicina_id_seq", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "medicina_id_seq", sequenceName = "public.medicina_id_seq", allocationSize = 1)
     private Integer id;
     @Column(name="nombre")
     private String name;
@@ -25,12 +24,10 @@ public class Medicine {
     public Medicine() {
     }
 
-    public Medicine(Integer id, String name, String dose, Integer quantity, String description, Integer mascXMed) {
-        this.id = id;
+    public Medicine(String name, String dose, Integer quantity, Integer mascXMed) {
         this.name = name;
         this.dose = dose;
         this.quantity = quantity;
-        this.description = description;
         this.mascXMed = mascXMed;
     }
 

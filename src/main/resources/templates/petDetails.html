@@ -8,12 +8,13 @@
 <body>
     <h1>Detalles de <span th:text="${pet.name}"/></h1>
     <div class="container">
-        <p><b>Raza:</b> Aguacaterrier </p>
-        <p><b>Edad:</b> 3 a&ntilde;os (21 a&ntilde;os perrunos) Quemado. </p>
-        <p><b>Peso:</b> 20 Kg Quemado. </p>
-        <p><b>Diagnostico:</b> Guapetura grado 1.</p>
+        <p><b>Raza:</b>  <span th:text="${pet.race}"/></p>
+        <p><b>Edad:</b>  <span th:text="${pet.birthDate}"/></p>
+        <p><b>Peso:</b>  <span th:text="${pet.weight}"/></p>
+        <p><b>Diagnostico:</b>  <span th:text="${pet.description}"/></p>
 
         <h3>Medicinas proporcionadas</h3>
+        <button class="btn btn-success" th:onclick="'window.location.href=\'/addMedicineForm?id=' + ${pet.id} + '\''">A&ntilde;adir</button>
         <ul>
             <th:block th:each="medicine, row: ${pet.medicineList}">
             <li th:text="${medicine.name}"></li>
