@@ -8,7 +8,7 @@
 <body>
     <h1>A&ntilde;adir Medicina a <span th:text="${pet.name}"></span></h1>
     <form method="post" action="/addMedicine">
-        <input type="hidden" name="id" th:value="${pet.id}">
+        <input type="hidden" name="idPet" th:value="${pet.id}">
         <label for="medicine">Nombre de medicamento </label>
         <input type="text" id="medicine" name="medicine"/>
         <br>

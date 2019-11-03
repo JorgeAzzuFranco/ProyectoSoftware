@@ -19,14 +19,19 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public Medicine findOne(Integer id) {
-        return medicineRepository.getOne(id);
-    }
-
-    @Override
     public void addMedicine(Integer id, String medicine, Integer quantity, String dose) {
         Medicine m = new Medicine(medicine, dose, quantity, id);
         medicineRepository.save(m);
+    }
+
+    @Override
+    public void deleteMedicine(Integer id, Integer medicineId) {
+        medicineRepository.deleteMedicineByIdAndMedicineId(id,medicineId);
+    }
+
+    @Override
+    public void updateMedicine(Medicine medicine) {
+        medicineRepository.save(medicine);
     }
 
 

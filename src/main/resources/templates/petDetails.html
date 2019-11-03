@@ -14,12 +14,26 @@
         <p><b>Diagnostico:</b>  <span th:text="${pet.description}"/></p>
 
         <h3>Medicinas proporcionadas</h3>
-        <button class="btn btn-success" th:onclick="'window.location.href=\'/addMedicineForm?id=' + ${pet.id} + '\''">A&ntilde;adir</button>
-        <ul>
+        <button class="btn btn-success" th:onclick="'window.location.href=\'/addMedicineForm?id=' + ${pet.id} + '\''">
+            A&ntilde;adir</button>
+        <table>
+            <thead>
+                <th>Medicamento</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
             <th:block th:each="medicine, row: ${pet.medicineList}">
-            <li th:text="${medicine.name}"></li>
+            <tr>
+                <th th:text="${medicine.name}"></th>
+                <th>
+                    <button class="btn btn-danger" th:onclick="'window.location.href=\'/deleteMedicine?id=' +
+                    ${pet.id} + '&medicineId=' + ${medicine.id} + '\''">Borrar</button>
+                    <button class="btn btn-primary" th:onclick="">Modificar</button>
+                </th>
+            </tr>
             </th:block>
-        </ul>
+            </tbody>
+        </table>
     </div>
     <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
 </body>
