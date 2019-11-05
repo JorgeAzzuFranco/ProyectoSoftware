@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Usuraio</title>
+</head>
+<body>
+
+<form method="post" th:object="${user}" th:action="@{/saveUser}">
+    <input type="text" name="username" th:value="*{username}" placeholder="Username" required/>
+    <br>
+    <input type="text" name="name" th:value="*{name}" placeholder="Nombre" required/>
+    <br>
+    <input type="text" name="last_name" th:value="*{last_name}" placeholder="Apellido" required/>
+    <br>
+    <input type="email" name="email" th:value="*{email}" placeholder="email" required/>
+    <br>
+    <input type="password" name="password" th:value="*{password}" placeholder="Contraseña" required/>
+    <br>
+    <select th:field="*{rol}">
+        <option th:each="p : ${role}" th:value="${p.pk_role}"
+                th:text="${p.rol}">
+        </option>
+    </select>
+    <br>
+    <button type="submit">Guardar Usuario</button>
+</form>
+
+</body>
+</html>

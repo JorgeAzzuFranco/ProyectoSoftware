@@ -21,13 +21,14 @@ public class RegisterController {
     @Autowired
     RolRepository rolRepository;
 
-    @GetMapping("/admin/addUser")
+    @GetMapping("admin/addUser")
     public String addUser(Model model){
         User usuario = new User();
         List<Rol> roles = rolRepository.findAll();
         model.addAttribute("user", usuario);
-        model.addAttribute("roles",roles);
-        return "addUser";
+        model.addAttribute("role",roles);
+
+        return "/admin/addUser";
     }
 
     @PostMapping("/admin/saveUser")
