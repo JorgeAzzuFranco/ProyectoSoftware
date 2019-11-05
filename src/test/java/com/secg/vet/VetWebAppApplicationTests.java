@@ -1,6 +1,6 @@
 package com.secg.vet;
 
-import com.secg.vet.controllers.Login2Controller;
+import com.secg.vet.controllers.LoginController;
 import com.secg.vet.controllers.MedicineController;
 import com.secg.vet.controllers.PetController;
 import com.secg.vet.controllers.WarehouseController;
@@ -24,14 +24,14 @@ public class VetWebAppApplicationTests {
     @Autowired
     WarehouseController warehouseController;
     @Autowired
-    Login2Controller login2Controller;
+    LoginController loginController;
 
 	@Test
 	public void contextLoads() {
 	    assertThat(medicineController).isNotNull();
 	    assertThat(petController).isNotNull();
 	    assertThat(warehouseController).isNotNull();
-	    assertThat(login2Controller).isNotNull();
+	    assertThat(loginController).isNotNull();
 	    //assertThat().isNotNull();
 	}
 
