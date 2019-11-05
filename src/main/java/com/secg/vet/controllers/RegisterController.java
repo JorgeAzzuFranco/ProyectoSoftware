@@ -31,10 +31,12 @@ public class RegisterController {
         return "/admin/addUser";
     }
 
-    @PostMapping("/admin/saveUser")
+    @PostMapping("admin/saveUser")
     public String saveProduct(@ModelAttribute User user, Model model){
-        userService.updateOrCreate(user);
-        return "main";
+        if(!userService.userExists(user)){
+            userService.updateOrCreate(user);
+        }
+        return "/main";
     }
 
 }

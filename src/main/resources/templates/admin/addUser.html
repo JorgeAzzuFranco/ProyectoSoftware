@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form method="post" th:object="${user}" th:action="@{/saveUser}">
+<form method="post" th:object="${user}" th:action="@{/admin/saveUser}">
     <input type="text" name="username" th:value="*{username}" placeholder="Username" required/>
     <br>
     <input type="text" name="name" th:value="*{name}" placeholder="Nombre" required/>

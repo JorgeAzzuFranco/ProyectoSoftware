@@ -9,4 +9,5 @@ public interface UserService {
     public User findOne(Integer id);
     public void updateOrCreate(User user);
     public void delete(User user);
+    public boolean userExists(User user);
 }
