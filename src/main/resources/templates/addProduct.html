@@ -11,14 +11,11 @@
     <input type="text" name="sku" th:value="*{sku}" placeholder="Sku" required/>
     <input type="text" name="nombre_producto" th:value="*{nombre_producto}" placeholder="Product Name" required/>
     <input type="number" name="cantidad" th:value="*{cantidad}" required min="1"/>
-    <!-- Dropdown para seleccionar que proveedor desea Queda pendiente para el nuevo sprint por motivos de que
-    se requiere el uso de ver e insertar proveedores...
     <select th:field="*{proveedor}">
-        <option th:each="proveedor : ${proveedorList}" th:value="${proveedor.pk_proveedor}"
-                th:text="${proveedor.nombre_proveedor}">
+        <option th:each="p : ${proveedor}" th:value="${p.pk_proveedor}"
+                th:text="${p.nombre_proveedor}">
         </option>
     </select>
-    -->
     <button type="submit">Save product</button>
 </form>
 

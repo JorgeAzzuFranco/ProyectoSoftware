@@ -2,6 +2,7 @@ package com.secg.vet.controllers;
 
 import com.secg.vet.domain.Proveedor;
 import com.secg.vet.domain.Warehouse;
+import com.secg.vet.services.ProviderService;
 import com.secg.vet.services.WarehouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ public class WarehouseController {
 
     @Autowired
     WarehouseService warehouseService;
+    @Autowired
+    ProviderService providerService;
 
     @GetMapping("/listProducts")
     public String pet(Model model){
@@ -28,16 +31,18 @@ public class WarehouseController {
     @GetMapping("/addProduct")
     public String addProduct(Model model){
         Warehouse warehouse = new Warehouse();
+        List<Proveedor> listaP = providerService.findAll();
         model.addAttribute("warehouse", warehouse);
+        model.addAttribute("proveedor",listaP);
         return "addProduct";
     }
 
     @PostMapping("/saveProduct")
     public String saveProduct(@ModelAttribute Warehouse warehouse, Model model){
-        /*DUMMY PROVEEDOR*/
+        /*DUMMY PROVEEDOR
         Proveedor proveedor = new Proveedor();
         proveedor.setPk_proveedor(1);
-        warehouse.setProveedor(proveedor);
+        warehouse.setProveedor(proveedor);*/
 
         warehouseService.insertProduct(warehouse);
         List<Warehouse> warehouseList = warehouseService.listarProductos();
