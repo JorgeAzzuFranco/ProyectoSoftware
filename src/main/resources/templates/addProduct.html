@@ -11,8 +11,8 @@
     <input type="text" name="sku" th:value="*{sku}" placeholder="Sku" required/>
     <input type="text" name="nombre_producto" th:value="*{nombre_producto}" placeholder="Product Name" required/>
     <input type="number" name="cantidad" th:value="*{cantidad}" required min="1"/>
-    <select th:field="*{proveedor}">
-        <option th:each="p : ${proveedor}" th:value="${p.pk_proveedor}"
+    <select th:field="*{provider}">
+        <option th:each="p : ${provider}" th:value="${p.pk_proveedor}"
                 th:text="${p.nombre_proveedor}">
         </option>
     </select>

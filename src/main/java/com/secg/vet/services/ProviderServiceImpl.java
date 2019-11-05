@@ -1,6 +1,6 @@
 package com.secg.vet.services;
 
-import com.secg.vet.domain.Proveedor;
+import com.secg.vet.domain.Provider;
 import com.secg.vet.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +14,12 @@ public class ProviderServiceImpl implements ProviderService {
     ProviderRepository providerRepository;
 
     @Override
-    public List<Proveedor> findAll() {
+    public List<Provider> findAll() {
         return providerRepository.findAll();
     }
 
     @Override
-    public Proveedor findOne(Integer id) {
+    public Provider findOne(Integer id) {
         return providerRepository.getOne(id);
     }
 }

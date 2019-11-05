@@ -1,6 +1,6 @@
 package com.secg.vet.controllers;
 
-import com.secg.vet.domain.Proveedor;
+import com.secg.vet.domain.Provider;
 import com.secg.vet.domain.Warehouse;
 import com.secg.vet.services.ProviderService;
 import com.secg.vet.services.WarehouseService;
@@ -31,18 +31,18 @@ public class WarehouseController {
     @GetMapping("/addProduct")
     public String addProduct(Model model){
         Warehouse warehouse = new Warehouse();
-        List<Proveedor> listaP = providerService.findAll();
+        List<Provider> listaP = providerService.findAll();
         model.addAttribute("warehouse", warehouse);
-        model.addAttribute("proveedor",listaP);
+        model.addAttribute("provider",listaP);
         return "addProduct";
     }
 
     @PostMapping("/saveProduct")
     public String saveProduct(@ModelAttribute Warehouse warehouse, Model model){
         /*DUMMY PROVEEDOR
-        Proveedor proveedor = new Proveedor();
+        Provider proveedor = new Provider();
         proveedor.setPk_proveedor(1);
-        warehouse.setProveedor(proveedor);*/
+        warehouse.setProvider(proveedor);*/
 
         warehouseService.insertProduct(warehouse);
         List<Warehouse> warehouseList = warehouseService.listarProductos();

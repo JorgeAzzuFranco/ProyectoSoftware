@@ -21,18 +21,16 @@ public class RegisterController {
     @Autowired
     RolRepository rolRepository;
 
-    @GetMapping("/addUser")
+    @GetMapping("/admin/addUser")
     public String addUser(Model model){
         User usuario = new User();
         List<Rol> roles = rolRepository.findAll();
-        Rol newRol = new Rol();
         model.addAttribute("user", usuario);
         model.addAttribute("roles",roles);
-        model.addAttribute("rol",newRol);
         return "addUser";
     }
 
-    @PostMapping("/saveUser")
+    @PostMapping("/admin/saveUser")
     public String saveProduct(@ModelAttribute User user, Model model){
         userService.updateOrCreate(user);
         return "main";

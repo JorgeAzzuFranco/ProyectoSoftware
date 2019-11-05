@@ -30,7 +30,7 @@ public class Warehouse {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_proveedor")
-    private Proveedor proveedor;
+    private Provider provider;
 
     public int getPk_almacen() {
         return pk_almacen;
@@ -64,11 +64,11 @@ public class Warehouse {
         this.cantidad = cantidad;
     }
 
-    public Proveedor getProveedor() {
-        return proveedor;
+    public Provider getProvider() {
+        return provider;
     }
 
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
+    public void setProvider(Provider provider) {
+        this.provider = provider;
     }
 }
