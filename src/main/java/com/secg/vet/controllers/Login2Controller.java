@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 
 @Controller
-public class login2Controller {
+public class Login2Controller {
 
     @Autowired
     UserService userService;

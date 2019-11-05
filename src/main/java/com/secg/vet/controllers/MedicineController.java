@@ -1,7 +1,6 @@
 package com.secg.vet.controllers;
 
 import com.secg.vet.domain.Medicine;
-import com.secg.vet.domain.Pet;
 import com.secg.vet.services.MedicineService;
 import com.secg.vet.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("medicineTest")
 public class MedicineController {
 
     @Autowired
@@ -50,19 +51,9 @@ public class MedicineController {
         return "petDetails";
     }
 
-    /*@GetMapping("/modifyPetMedicineForm")
-    public String modifyPetMedicineForm(@RequestParam("medicineId") String medicineId, Model model){
-        Medicine medicine = medicineService.findOne(Integer.parseInt(medicineId));
-        model.addAttribute("medicine", medicine);
-        return "addMedicineForm";
+    @GetMapping("/testRead")
+    public List<Medicine> medicineTest(){
+        return medicineService.findAll();
     }
-
-    @PostMapping("/modifyMedicine")
-    public String modifyMedicine(@RequestParam("id") String idPet, Medicine medicine, Model model){
-        medicineService.updateMedicine(medicine);
-        Pet pet = petService.findOne(Integer.parseInt(idPet));
-        model.addAttribute("pet", pet);
-        return "petDetails";
-    }*/
 
 }
