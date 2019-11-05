@@ -16,4 +16,7 @@ public interface MedicineRepository extends JpaRepository<Medicine, Integer> {
     @Transactional
     @Query(value="DELETE FROM medicina where mascxmed = :id and id = :medid", nativeQuery = true)
     public void deleteMedicineByIdAndMedicineId(@Param("id") Integer id, @Param("medid") Integer medicineId);
+
+    @Query(value = "select * from medicina where nombre = :nombre", nativeQuery = true)
+    public Medicine findByName(@Param("nombre") String nombre);
 }

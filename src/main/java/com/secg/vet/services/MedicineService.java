@@ -9,5 +9,5 @@ public interface MedicineService {
     public List<Medicine> findAll();
     public void addMedicine(Integer id, String medicine, Integer quantity, String dose);
     public void deleteMedicine(Integer id, Integer medicineId);
-    public void updateMedicine(Medicine medicine);
+    public Medicine findByName(String name);
 }

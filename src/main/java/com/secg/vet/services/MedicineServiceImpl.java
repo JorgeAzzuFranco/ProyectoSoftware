@@ -30,9 +30,8 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public void updateMedicine(Medicine medicine) {
-        medicineRepository.save(medicine);
+    public Medicine findByName(String name) {
+        return medicineRepository.findByName(name);
     }
-
 
 }
