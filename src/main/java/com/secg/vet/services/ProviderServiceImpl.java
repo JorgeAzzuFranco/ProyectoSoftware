@@ -22,4 +22,19 @@ public class ProviderServiceImpl implements ProviderService {
     public Provider findOne(Integer id) {
         return providerRepository.getOne(id);
     }
+
+    @Override
+    public Provider findByName(String nombre) {
+        return providerRepository.findByName(nombre);
+    }
+
+    @Override
+    public void delete(Provider provider) {
+        providerRepository.delete(provider);
+    }
+
+    @Override
+    public void createOrUpdate(Provider provider) {
+        providerRepository.save(provider);
+    }
 }

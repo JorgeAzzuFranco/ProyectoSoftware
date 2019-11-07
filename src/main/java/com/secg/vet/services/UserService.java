@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
     public List<User> findAll();
-    public User findOne(Integer id);
+    public User findOneByUsername(String username);
     public void updateOrCreate(User user);
     public void delete(User user);
     public boolean userExists(User user);

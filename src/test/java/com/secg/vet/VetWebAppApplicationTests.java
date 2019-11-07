@@ -1,9 +1,6 @@
 package com.secg.vet;
 
-import com.secg.vet.controllers.LoginController;
-import com.secg.vet.controllers.MedicineController;
-import com.secg.vet.controllers.PetController;
-import com.secg.vet.controllers.WarehouseController;
+import com.secg.vet.controllers.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +22,8 @@ public class VetWebAppApplicationTests {
     WarehouseController warehouseController;
     @Autowired
     LoginController loginController;
+    @Autowired
+    RegisterController registerController;
 
 	@Test
 	public void contextLoads() {
@@ -32,6 +31,7 @@ public class VetWebAppApplicationTests {
 	    assertThat(petController).isNotNull();
 	    assertThat(warehouseController).isNotNull();
 	    assertThat(loginController).isNotNull();
+	    assertThat(registerController).isNotNull();
 	    //assertThat().isNotNull();
 	}
 

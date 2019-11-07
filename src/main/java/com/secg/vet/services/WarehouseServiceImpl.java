@@ -19,13 +19,18 @@ public class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
-    public Warehouse listarProducto(Integer id) {
-        return warehouseRepository.getOne(id);
+    public Warehouse listarProductoSku(String sku) {
+        return warehouseRepository.findBySku(sku);
     }
 
     @Override
     public void insertProduct(Warehouse warehouse) {
         warehouseRepository.save(warehouse);
+    }
+
+    @Override
+    public void deleteProduct(Warehouse warehouse) {
+        warehouseRepository.delete(warehouse);
     }
 
 }
