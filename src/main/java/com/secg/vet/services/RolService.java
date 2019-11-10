@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface RolService {
     public List<Rol> findAll();
-    public Rol findOne(Integer id);
 }
