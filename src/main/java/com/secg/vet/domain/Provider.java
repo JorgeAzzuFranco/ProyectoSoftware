@@ -21,6 +21,15 @@ public class Provider {
     @Column(name="telefono_principal")
     private String telefono_principal;
 
+    public Provider() {
+    }
+
+    public Provider(String nombre_proveedor, String descripcion, String telefono_principal) {
+        this.nombre_proveedor = nombre_proveedor;
+        this.descripcion = descripcion;
+        this.telefono_principal = telefono_principal;
+    }
+
     public int getPk_proveedor() {
         return pk_proveedor;
     }
