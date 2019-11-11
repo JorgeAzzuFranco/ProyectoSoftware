@@ -9,6 +9,8 @@ import java.util.List;
 public class Pet {
 
     @Id
+    @GeneratedValue(generator = "mascota_id_seq", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "mascota_id_seq", sequenceName = "public.mascota_id_seq", allocationSize = 1)
     private Integer id;
     @Column(name="nombre")
     private String name;
@@ -26,8 +28,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(Integer id, String name, String description, String race, Date birthDate, Double weight) {
-        this.id = id;
+    public Pet(String name, String description, String race, Date birthDate, Double weight) {
         this.name = name;
         this.description = description;
         this.race = race;
