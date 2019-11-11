@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>A&ntilde;adir Mascota</title>
+</head>
+<body>
+    <h1>A&ntilde;adir Mascota</h1>
+
+    <form action="/addPet" method="post">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" th:value="${pet.name}"/>
+        <br>
+        <label for="description">Descripci&oacute;n</label>
+        <input type="text" id="description" name="description" th:value="${pet.description}"/>
+        <br>
+        <label for="race">Raza:</label>
+        <input type="text" id="race" name="race" th:value="${pet.race}"/>
+        <br>
+        <label for="birthDate">Fecha de nacimiento:</label>
+        <input type="date" id="birthDate" name="dateUnpatterned" th:value="${pet.birthDate}"/>
+        <br>
+        <label for="weight">Peso (lbs):</label>
+        <input type="text" id="weight" name="weight" th:value="${pet.weight}"/>
+        <br>
+        <input type="submit" value="Crear mascota"/>
+    </form>
+</body>
+</html>

@@ -3,12 +3,12 @@ package com.secg.vet.controllers;
 import com.secg.vet.domain.Pet;
 import com.secg.vet.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,4 +31,19 @@ public class PetController {
         return "petDetails";
     }
 
+    @GetMapping("/petForm")
+    public String petFrom(Model model){
+        Pet pet = new Pet();
+        model.addAttribute(pet);
+        return "petForm";
+    }
+
+    @PostMapping("/addPet")
+    public String addPet(@ModelAttribute Pet pet, Model model,
+                         @RequestParam("dateUnpatterned") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+        pet.setBirthDate(date);
+        petService.addPet(pet);
+        model.addAttribute("petList", petService.findAll());
+        return "pet";
+    }
 }
