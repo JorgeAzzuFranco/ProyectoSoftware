@@ -1,20 +1,14 @@
 package com.secg.vet.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="medicina")
 public class Medicine {
 
     @Id
+    @GeneratedValue(generator = "medicina_id_seq", strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "medicina_id_seq", sequenceName = "public.medicina_id_seq", allocationSize = 1)
     private Integer id;
     @Column(name="nombre")
     private String name;
@@ -24,16 +18,17 @@ public class Medicine {
     private Integer quantity;
     @Column(name="descripcion")
     private String description;
+    @Column(name = "mascxmed")
+    private Integer mascXMed;
 
     public Medicine() {
     }
 
-    public Medicine(Integer id, String name, String dose, Integer quantity, String description) {
-        this.id = id;
+    public Medicine(String name, String dose, Integer quantity, Integer mascXMed) {
         this.name = name;
         this.dose = dose;
         this.quantity = quantity;
-        this.description = description;
+        this.mascXMed = mascXMed;
     }
 
     public Integer getId() {
@@ -74,5 +69,13 @@ public class Medicine {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getMascXMed() {
+        return mascXMed;
+    }
+
+    public void setMascXMed(Integer mascXMed) {
+        this.mascXMed = mascXMed;
     }
 }

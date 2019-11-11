@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Proveedor</title>
+</head>
+<body>
+
+<form method="post" th:object="${provider}" th:action="@{/saveProvider}">
+    <input type="text" name="nombre_proveedor" th:value="*{nombre_proveedor}" placeholder="Nombre del Proveedor" required/>
+    <br>
+    <input type="text" name="telefono_principal" th:value="*{telefono_principal}" placeholder="Telefono" required/>
+    <br>
+    <textarea rows="4" cols="50" name="descripcion" th:value="*{descripcion}" placeholder="Descripcion" required>
+    <input type="" name="name" th:value="*{name}" placeholder="Nombre" required/>
+    <br>
+    <button type="submit">Guardar Proveedor</button>
+</form>
+
+</body>
+</html>
