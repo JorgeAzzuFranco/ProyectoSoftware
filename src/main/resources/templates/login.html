@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>Login</title>
+
+    <style>
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 50%;
+            padding: 5px;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .center{
+            text-align: center;
+        }
+    </style>
+
+    <title>Bienvenido</title>
 </head>
 <body>
-<div class="container">
-    <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
-        <div class="card">
-            <div class="card-header">
-                <i class="fa fa-user"></i> Inicio de sesion
-            </div>
-            <div class="card-block" style="padding: 24px;">
-                <form name="f" th:action="@{/login}" method="post">
-                    <fieldset>
-                        <!-- Thymeleaf + Spring Security error display -->
-                        <div th:if="${param.error}" class="alert alert-danger">
-                            Usuario y contraseña invalidos
-                        </div>
+<img src="https://imgbbb.com/images/2019/11/11/petslog9e12759d96fece7a.md.png" alt="banner" border="0" width=100% height=200>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/11/wallpaperpet.md.png); height: 100%; width: 100%;">
+    <br><br>
+    <div class="card">
+        <div class="center"><br>
 
-                        <div th:if="${param.logout}" class="alert alert-success">
-                            Se ha cerrado la sesion.
-                        </div>
+            <FONT FACE="Impact" size="7">
 
-                        <!-- Login Controls -->
-                        <div class="form-group">
-                            <label for="txtUsername">Usuario</label>
-                            <input type="text" class="form-control" id="txtUsername" name="username"
-                                   placeholder="Usuario">
-                        </div>
+                INGRESA TUS CREDENCIALES
 
-                        <div class="form-group">
-                            <label for="txtPassword">Contraseña</label>
-                            <input type="password" class="form-control" id="txtPassword" name="pass"
-                                   placeholder="Contraseña">
-                        </div>
+            </FONT>
+            <br>
+            <MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE><br>
+            <br>
+            <form name="f" th:action="@{/login}" method="post">
+                <fieldset>
+                    <!-- Thymeleaf + Spring Security error display -->
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        Usuario y contraseña invalidos
+                    </div>
 
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="checkRememberMe" name="checkRememberMe">
-                            <label class="form-check-label" for="checkRememberMe">Guardar credenciales</label>
-                        </div>
+                    <div th:if="${param.logout}" class="alert alert-success">
+                        Se ha cerrado la sesion.
+                    </div>
 
-                        <!-- Login Button -->
-                        <div class="form-actions" style="margin-top: 12px;">
-                            <button type="submit" class="btn btn-success">Iniciar Sesion</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+                    <!-- Login Controls -->
+                    <div class="form-group">
+                        <label for="txtUsername">Usuario</label>
+                        <input type="text" class="form-control" id="txtUsername" name="username"
+                               placeholder="Usuario">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtPassword">Contraseña</label>
+                        <input type="password" class="form-control" id="txtPassword" name="pass"
+                               placeholder="Contraseña">
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="checkRememberMe" name="checkRememberMe">
+                        <label class="form-check-label" for="checkRememberMe">Guardar credenciales</label>
+                    </div>
+
+                    <!-- Login Button -->
+                    <div class="form-actions" style="margin-top: 12px;">
+                        <button type="submit" class="btn btn-success">Iniciar Sesion</button>
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </div>
+<br>
 </div>
 </body>
-
 </html>
