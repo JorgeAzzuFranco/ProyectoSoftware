@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <title>Agregar Usuraio</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
 </head>
 <body>
-
+<img src="https://imgbbb.com/images/2019/11/18/agregarlog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/18/wallpaperusers.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
 <form method="post" th:object="${user}" th:action="@{/admin/saveUser}">
-    <input type="text" name="username" th:value="*{username}" placeholder="Username" required/>
-    <br>
-    <input type="text" name="name" th:value="*{name}" placeholder="Nombre" required/>
-    <br>
-    <input type="text" name="last_name" th:value="*{last_name}" placeholder="Apellido" required/>
-    <br>
-    <input type="email" name="email" th:value="*{email}" placeholder="email" required/>
-    <br>
-    <input type="password" name="password" th:value="*{password}" placeholder="Contraseña" required/>
-    <br>
-    <select th:field="*{rol}">
-        <option th:each="p : ${role}" th:value="${p.pk_role}"
-                th:text="${p.rol}">
-        </option>
-    </select>
-    <br>
-    <button type="submit">Guardar Usuario</button>
-</form>
+    <button style="float: left;" class="btn btn-success" type="submit">Guardar Usuario</button>
+    <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/login\''">Cancelar</button>
+    <pre><br><br></pre>
 
+    <table class="table table-bordered table-responsive-md">
+        <tr>
+            <th><label>Apodo:</label></th>
+            <th><input style="width:100%;" type="text" name="username" th:value="*{username}" placeholder="Username" required/></th>
+        </tr>
+        <tr>
+            <th><label>Nombre del Usuario:</label></th>
+            <th><input style="width:100%;" type="text" name="name" th:value="*{name}" placeholder="Nombre" required/></th>
+        </tr>
+        <tr>
+            <th><label>Apellido del Usuario:</label></th>
+            <th><input style="width:100%;" type="text" name="last_name" th:value="*{last_name}" placeholder="Apellido" required/></th>
+        </tr>
+        <tr>
+            <th><label>Correo del Usuario:</label></th>
+            <th><input style="width:100%;" type="email" name="email" th:value="*{email}" placeholder="email" required/></th>
+        </tr>
+        <tr>
+            <th><label>Contrase&ntilde;a del Usuario:</label></th>
+            <th><input style="width:100%;" type="password" name="password" th:value="*{password}" placeholder="Contraseña" required/></th>
+        </tr>
+        <tr>
+            <th><label>Rol del Usuario:</label></th>
+            <th><select th:field="*{rol}">
+                <option th:each="p : ${role}" th:value="${p.pk_role}"
+                        th:text="${p.rol}">
+                </option>
+            </select></th>
+        </tr>
+    </table>
+</form></div><br><br></div>
 </body>
 </html>
