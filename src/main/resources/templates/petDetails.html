@@ -4,37 +4,70 @@
     <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <meta charset="UTF-8">
     <title>Detalles de Mascota</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
 </head>
 <body>
-    <h1>Detalles de <span th:text="${pet.name}"/></h1>
-    <div class="container">
-        <p><b>Raza:</b>  <span th:text="${pet.race}"/></p>
-        <p><b>Edad:</b>  <span th:text="${pet.birthDate}"/></p>
-        <p><b>Peso:</b>  <span th:text="${pet.weight}"/></p>
-        <p><b>Diagnostico:</b>  <span th:text="${pet.description}"/></p>
-
-        <h3>Medicinas proporcionadas</h3>
-        <button class="btn btn-success" th:onclick="'window.location.href=\'/addMedicineForm?id=' + ${pet.id} + '\''">
-            A&ntilde;adir</button>
-        <table>
+<img src="https://imgbbb.com/images/2019/11/17/mascotaslog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <button style="float: left;" class="btn btn-success" th:onclick="'window.location.href=\'/addMedicineForm?id=' + ${pet.id} + '\''">A&ntilde;adir Medicina</button>
+        <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/pet\''">Volver</button>
+        <pre><br><br></pre>
+        <table class="table table-bordered table-responsive-md">
+            <tr>
+                <th colspan="2"><b><h4 style="width:100%;" align="center">Datos Generales</h4></b></th>
+            </tr>
+            <tr>
+                <th><h5>Raza</h5></th>
+                <th><h5><span th:text="${pet.race}"/></h5></th>
+            </tr>
+            <tr>
+                <th><h5>Edad</h5></th>
+                <th><h5><span th:text="${pet.birthDate}"/></h5></th>
+            </tr>
+            <tr>
+                <th><h5>Peso</h5></th>
+                <th><h5><span th:text="${pet.weight}"/> lb</h5></th>
+            </tr>
+            <tr>
+                <th><h5>Diagnostico</h5></th>
+                <th><h5><span th:text="${pet.description}"/></h5></th>
+            </tr>
+        </table></div>
+        <table class="table table-bordered table-responsive-md">
+            <tr>
+                <th><h2 style="width:100%;" align="center">Informaci&oacute; de <span th:text="${pet.name}"></span></h2></th>
+            </tr>
+        </table>
+        <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+            <table class="table table-bordered table-responsive-md">
             <thead>
-                <th>Medicamento</th>
-                <th>Acciones</th>
+            <tr>
+                <th colspan="2"><b><h4 style="width:100%;" align="center">Medicinas Proporcionadas</h4></b></th>
+            </tr>
+                <th><h5 style="width:100%;" align="center">Medicamento</h5></th>
+                <th><h5 style="width:100%;" align="center">Acciones</h5></th>
             </thead>
             <tbody>
             <th:block th:each="medicine, row: ${pet.medicineList}">
-            <tr>
-                <th th:text="${medicine.name}"></th>
-                <th>
-                    <button class="btn btn-danger" th:onclick="'window.location.href=\'/deleteMedicine?id=' +
+                <tr>
+                    <th th:text="${medicine.name}"></th>
+                    <th>
+                        <button class="btn btn-danger" th:onclick="'window.location.href=\'/deleteMedicine?id=' +
                     ${pet.id} + '&medicineId=' + ${medicine.id} + '\''">Borrar</button>
-                    <button class="btn btn-primary" th:onclick="">Modificar</button>
-                </th>
-            </tr>
+                        <button class="btn btn-primary" th:onclick="">Modificar</button>
+                    </th>
+                </tr>
             </th:block>
             </tbody>
-        </table>
-    </div>
-    <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+            </table>
+        </div>
+        <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script></div></div><br><br><br>
 </body>
 </html>
