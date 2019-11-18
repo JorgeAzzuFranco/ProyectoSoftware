@@ -24,21 +24,20 @@
             <table class="table table-bordered table-responsive-md">
                 <tr>
                     <th><label for="medicine">Nombre de medicamento </label></th>
-                    <th><input style="width:100%;" type="text" id="medicine" name="medicine"/></th>
+                    <th><input style="width:100%;" type="text" id="medicine" name="medicine" required minlength="1" maxlength="50"/></th>
                 </tr>
                 <tr>
                     <th><label for="quantity">Cantidad </label></th>
-                    <th><input style="width:100%;" type="number" id="quantity" name="quantity"></th>
+                    <th><input style="width:100%;" type="number" id="quantity" name="quantity" required></th>
                 </tr>
                 <tr>
                     <th><label for="dose">Dosis </label></th>
-                    <th><select style="width:100%;" name="dose" id="dose">
+                    <th><select style="width:100%;" name="dose" id="dose" required>
                         <option value="cada 4 horas">Cada 4 horas</option>
                         <option value="cada 6 horas">Cada 6 horas</option>
                         <option value="cada 8 horas">Cada 8 horas</option>
                         <option value="cada 12 horas">Cada 12 horas</option>
                         <option value="Una vez al d&iacute;a"> Una vez al d&iacute;a</option>
-                        <option value="Dos veces al d&iacute;a">Dos veces al d&iacute;a</option>
                         <option value="Una vez a la semana">Una vez a la semana</option>
                     </select></th>
                 </tr>
