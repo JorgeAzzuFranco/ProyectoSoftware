@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <meta charset="UTF-8">
     <title>A&ntilde;adir Mascota</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
 </head>
 <body>
-    <h1>A&ntilde;adir Mascota</h1>
-
+<img src="https://imgbbb.com/images/2019/11/18/agregarlog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
     <form action="/addPet" method="post">
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" th:value="${pet.name}"/>
-        <br>
-        <label for="description">Descripci&oacute;n</label>
-        <input type="text" id="description" name="description" th:value="${pet.description}"/>
-        <br>
-        <label for="race">Raza:</label>
-        <input type="text" id="race" name="race" th:value="${pet.race}"/>
-        <br>
-        <label for="birthDate">Fecha de nacimiento:</label>
-        <input type="date" id="birthDate" name="dateUnpatterned" th:value="${pet.birthDate}"/>
-        <br>
-        <label for="weight">Peso (lbs):</label>
-        <input type="text" id="weight" name="weight" th:value="${pet.weight}"/>
-        <br>
-        <input type="submit" value="Crear mascota"/>
-    </form>
+        <input style="float: left;" class="btn btn-success" type="submit" value="Crear mascota"/>
+        <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/pet\''">Cancelar</button>
+        <pre><br><br></pre>
+        <table class="table table-bordered table-responsive-md">
+            <tr>
+                <th><label for="name">Nombre:</label></th>
+                <th><input style="width:100%;" type="text" id="name" name="name" th:value="${pet.name}"/></th>
+            </tr>
+            <tr>
+                <th><label for="description">Raz&oacute;n</label></th>
+                <th><input style="width:100%;" type="text" id="description" name="description" th:value="${pet.description}"/></th>
+            </tr>
+            <tr>
+                <th><label for="race">Raza:</label></th>
+                <th><input style="width:100%;" type="text" id="race" name="race" th:value="${pet.race}"/></th>
+            </tr>
+            <tr>
+                <th><label for="birthDate">Fecha de nacimiento:</label></th>
+                <th><input style="width:100%;" type="date" id="birthDate" name="dateUnpatterned" th:value="${pet.birthDate}"/></th>
+            </tr>
+            <tr>
+                <th><label for="weight">Peso (lbs):</label></th>
+                <th><input style="width:100%;" type="text" id="weight" name="weight" th:value="${pet.weight}"/></th>
+            </tr>
+        </table>
+    </form></div><br><br><br></div>
 </body>
 </html>
