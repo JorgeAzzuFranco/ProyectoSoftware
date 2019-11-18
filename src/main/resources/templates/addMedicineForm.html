@@ -17,31 +17,33 @@
 <div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
     <br>
     <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
-    <form method="post" action="/addMedicine">
-        <input style="float: left;" class="btn btn-success" type="submit" value="Guardar"/>
-        <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/pet\''">Cancelar</button>
-        <pre><br><br></pre>
-        <table class="table table-bordered table-responsive-md">
-            <tr>
-                <th><label for="medicine">Nombre de medicamento </label></th>
-                <th><input style="width:100%;" type="text" id="medicine" name="medicine"/></th>
-            </tr>
-            <tr>
-                <th><label for="quantity">Cantidad </label></th>
-                <th><input style="width:100%;" type="number" id="quantity" name="quantity"></th>
-            </tr>
-            <tr>
-                <th><label for="dose">Dosis </label></th>
-                <th><select style="width:100%;" name="dose" id="dose">
-                    <option value="Una vez al d&iacute;a"> Una vez al d&iacute;a</option>
-                    <option value="Dos veces al d&iacute;a">Dos veces al d&iacute;a</option>
-                    <option value="cada 4 horas">Cada 4 horas</option>
-                    <option value="cada 6 horas">Cada 6 horas</option>
-                    <option value="cada 8 horas">Cada 8 horas</option>
-                </select></th>
-            </tr>
-        </table>
-    </form>
+        <form method="post" action="/addMedicine">
+            <input style="float: left;" class="btn btn-success" type="submit" th:value="Guardar"/>
+            <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/pet\''">Cancelar</button>
+            <pre><br><br></pre>
+            <table class="table table-bordered table-responsive-md">
+                <tr>
+                    <th><label for="medicine">Nombre de medicamento </label></th>
+                    <th><input style="width:100%;" type="text" id="medicine" name="medicine"/></th>
+                </tr>
+                <tr>
+                    <th><label for="quantity">Cantidad </label></th>
+                    <th><input style="width:100%;" type="number" id="quantity" name="quantity"></th>
+                </tr>
+                <tr>
+                    <th><label for="dose">Dosis </label></th>
+                    <th><select style="width:100%;" name="dose" id="dose">
+                        <option value="cada 4 horas">Cada 4 horas</option>
+                        <option value="cada 6 horas">Cada 6 horas</option>
+                        <option value="cada 8 horas">Cada 8 horas</option>
+                        <option value="cada 12 horas">Cada 12 horas</option>
+                        <option value="Una vez al d&iacute;a"> Una vez al d&iacute;a</option>
+                        <option value="Dos veces al d&iacute;a">Dos veces al d&iacute;a</option>
+                        <option value="Una vez a la semana">Una vez a la semana</option>
+                    </select></th>
+                </tr>
+            </table>
+        </form>
         <input type="hidden" name="idPet" th:value="${pet.id}">
         <br>
         <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script></div>
