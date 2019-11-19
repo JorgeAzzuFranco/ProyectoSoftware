@@ -8,7 +8,7 @@
 <body>
 <form method="post" th:object="${warehouse}" th:action="@{/saveProduct}">
     <input type="text" name="sku" th:value="*{sku}" placeholder="Sku" required/>
-    <input type="text" name="nombre_producto" th:value="*{nombre_producto}" placeholder="Product Name" required/>
+    <input type="text" name="nombre_producto" th:value="*{nombre_producto}" placeholder="Product Name" minlength="10" maxlength="50" required/>
     <input type="number" name="cantidad" th:value="*{cantidad}" required min="1"/>
     <select th:field="*{provider}">
         <option th:each="p : ${provider}" th:value="${p.pk_proveedor}"

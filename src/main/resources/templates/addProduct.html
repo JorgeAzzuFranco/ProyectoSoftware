@@ -24,11 +24,11 @@
     <table class="table table-bordered table-responsive-md">
         <tr>
             <th><label>Sku: </label></th>
-            <th><input style="width:100%;" type="text" name="sku" th:value="*{sku}" placeholder="Sku" required/></th>
+            <th><input style="width:100%;" type="text" name="sku" th:value="*{sku}" placeholder="Sku" minlength="8" maxlength="8" required/></th>
         </tr>
         <tr>
             <th><label>Nombre: </label></th>
-            <th><input style="width:100%;" type="text" name="nombre_producto" th:value="*{nombre_producto}" placeholder="Product Name" required/></th>
+            <th><input style="width:100%;" type="text" name="nombre_producto" th:value="*{nombre_producto}" placeholder="Product Name" minlength="10" maxlength="50" required/></th>
         </tr>
         <tr>
             <th><label>Cantidad: </label></th>
