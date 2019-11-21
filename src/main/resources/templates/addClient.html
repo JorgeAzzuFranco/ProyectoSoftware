@@ -7,13 +7,13 @@
 <body>
 
 <form method="post" th:object="${duenio}" th:action="@{/saveDuenio}">
-    <label for="quantity">Nombre del dueño </label>
+    <label>Nombre del dueño </label>
     <input type="text" name="nombre_duenio" th:value="*{nombre_duenio}" placeholder="Nombre del dueño" minlength="10" maxlength="50" required/>
     <br>
-    <label for="quantity">Telefono de contacto </label>
+    <label>Telefono de contacto </label>
     <input type="text" name="telefono_principal" th:value="*{telefono_principal}" placeholder="Telefono" minlength="8" maxlength="8" required/>
     <br>
-    <label for="quantity">Mascota </label>
+    <label>Mascota </label>
     <select th:field="*{mascota}">
         <option th:each="p : ${mascota}" th:value="${p.pk_mascota}" th:text="${p.nombre_mascota}">
         </option>
