@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Dueño</title>
+</head>
+<body>
+
+<form method="post" th:object="${duenio}" th:action="@{/saveDuenio}">
+    <label for="quantity">Nombre del dueño </label>
+    <input type="text" name="nombre_duenio" th:value="*{nombre_duenio}" placeholder="Nombre del dueño" minlength="10" maxlength="50" required/>
+    <br>
+    <label for="quantity">Telefono de contacto </label>
+    <input type="text" name="telefono_principal" th:value="*{telefono_principal}" placeholder="Telefono" minlength="8" maxlength="8" required/>
+    <br>
+    <label for="quantity">Mascota </label>
+    <select th:field="*{mascota}">
+        <option th:each="p : ${mascota}" th:value="${p.pk_mascota}" th:text="${p.nombre_mascota}">
+        </option>
+    </select>
+    <br>
+    <button type="submit">Guardar Dueño</button>
+</form>
+</body>
+</html>
