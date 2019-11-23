@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Provider List</title>
+</head>
+<body>
+
+
+<button onclick="location.href='/admin/addProvider'">A&ntilde;adir Proveedor</button>
+<table>
+<thead>
+<th>Nombre Proveedor</th>
+<th>Descripcion</th>
+<th>Telefono principal</th>
+<th>Editar</th>
+<th>Eliminar</th>
+</thead>
+<th:block th:each="provider, row: ${list}">
+    <tr>
+        <th th:text="${provider.nombre_proveedor}"></th>
+        <th th:text="${provider.descripcion}"></th>
+        <th th:text="${provider.telefono_principal}"></th>
+        <th><button th:value="${provider.pk_proveedor}" onclick="location.href='/admin/editProvider'">Editar Proveedor</button> </th>
+        <th><button th:value="${provider.pk_proveedor}" onclick="location.href='/admin/deleteProvider'">Eliminar Proveedor</button> </th>
+
+    </tr>
+</th:block>
+</table>
+
+
+</body>
+</html>

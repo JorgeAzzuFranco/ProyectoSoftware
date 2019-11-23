@@ -24,6 +24,8 @@ public class VetWebAppApplicationTests {
     LoginController loginController;
     @Autowired
     RegisterController registerController;
+    @Autowired
+    ProviderController providerController;
 
 	@Test
 	public void contextLoads() {
@@ -32,6 +34,7 @@ public class VetWebAppApplicationTests {
 	    assertThat(warehouseController).isNotNull();
 	    assertThat(loginController).isNotNull();
 	    assertThat(registerController).isNotNull();
+	    assertThat(providerController).isNotNull();
 	    //assertThat().isNotNull();
 	}
 

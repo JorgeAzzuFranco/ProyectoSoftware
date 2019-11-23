@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Provider</title>
+</head>
+<body>
+
+
+<button onclick="location.href='/admin/listProvider'">Cancelar</button>
+
+<form method="post" th:object="${provider}" th:action="@{/admin/saveProvider}">
+    <input type="hidden" name="pk_proveedor" th:value="*{pk_proveedor}"/>
+<label>Nombre Proveedor: </label>
+    <input type="text" name="nombre_proveedor" th:value="*{nombre_proveedor}" placeholder="Nombre" maxlength="200" required />
+<label>Descripción: </label>
+    <input type="text" name="descripcion" th:value="*{descripcion}" placeholder="Descripcion" maxlength="500" required />
+<label>Telefono principal: </label>
+    <input type="number" name="telefono_principal" th:value="*{telefono_principal}" max="999999999999" required />
+
+    <button type="submit">Guardar Proveedor</button>
+
+</form>
+
+</body>
+</html>
