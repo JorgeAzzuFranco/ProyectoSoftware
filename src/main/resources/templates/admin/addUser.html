@@ -45,7 +45,7 @@
         </tr>
         <tr>
             <th><label>Rol del Usuario:</label></th>
-            <th><select th:field="*{rol}">
+            <th><select th:field="*{rol}" style="width:100%;">
                 <option th:each="p : ${role}" th:value="${p.pk_role}"
                         th:text="${p.rol}">
                 </option>

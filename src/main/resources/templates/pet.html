@@ -21,7 +21,6 @@
         <pre><br><br></pre>
     <table class="table table-bordered table-responsive-md">
         <thead>
-        <th><div align="center">Id</div></th>
         <th><div align="center">Nombre</div></th>
         <th><div align="center">Due&ntilde;io</div></th>
         <th><div align="center">Raz&oacute;n</div></th>
@@ -29,7 +28,6 @@
         </thead>
         <th:block th:each="pet, row: ${petList}">
             <tr>
-                <th th:text="${pet.id}"></th>
                 <th th:text="${pet.name}"></th>
                 <th> Due&ntilde;io </th>
                 <th th:text="${pet.description}"></th>
