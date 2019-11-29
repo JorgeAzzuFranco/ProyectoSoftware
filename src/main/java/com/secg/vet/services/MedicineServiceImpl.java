@@ -5,6 +5,7 @@ import com.secg.vet.repositories.MedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -18,12 +19,14 @@ public class MedicineServiceImpl implements MedicineService {
         return medicineRepository.findAll();
     }
 
+    @Transactional
     @Override
     public void addMedicine(Integer id, String medicine, Integer quantity, String dose) {
         Medicine m = new Medicine(medicine, dose, quantity, id);
         medicineRepository.save(m);
     }
 
+    @Transactional
     @Override
     public void deleteMedicine(Integer id, Integer medicineId) {
         medicineRepository.deleteMedicineByIdAndMedicineId(id,medicineId);

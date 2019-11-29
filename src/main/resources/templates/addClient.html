@@ -8,10 +8,10 @@
 
 <form method="post" th:object="${client}" th:action="@{/saveClient}">
     <label>Nombre del dueño </label>
-    <input type="text" name="name" th:value="${client.name}" placeholder="Nombre del dueño"  maxlength="50" required/>
+    <input type="text" name="name" th:value="${client.name}" placeholder="Nombre del dueño" minlength="1"  maxlength="50" required/>
     <br>
     <label>Apellido del dueño </label>
-    <input type="text" name="last_name" th:value="${client.last_name}" placeholder="Apellido del dueño" maxlength="50" required/>
+    <input type="text" name="last_name" th:value="${client.last_name}" placeholder="Apellido del dueño" minlength="1" maxlength="50" required/>
     <br>
     <label>Telefono de contacto </label>
     <input type="text" name="phone" th:value="${client.phone}" placeholder="Telefono" minlength="8" maxlength="8" required/>

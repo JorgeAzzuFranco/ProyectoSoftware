@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -26,12 +27,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
+    @Transactional
     @Override
     public void updateOrCreate(User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
+    @Transactional
     @Override
     public void delete(User user) {
         userRepository.delete(user);
