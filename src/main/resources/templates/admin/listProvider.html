@@ -23,9 +23,8 @@
         <th th:text="${provider.nombre_proveedor}"></th>
         <th th:text="${provider.descripcion}"></th>
         <th th:text="${provider.telefono_principal}"></th>
-        <th><button th:value="${provider.pk_proveedor}" onclick="location.href='/admin/editProvider'">Editar Proveedor</button> </th>
-        <th><button th:value="${provider.pk_proveedor}" onclick="location.href='/admin/deleteProvider'">Eliminar Proveedor</button> </th>
-
+        <th><button th:onclick="'window.location.href = \'' + @{/admin/editProvider/?id={id}(id=${provider.pk_proveedor})} + '\''">Editar Proveedor</button> </th>
+        <th><button th:onclick="'window.location.href = \'' + @{/admin/deleteProvider/?id={id}(id=${provider.pk_proveedor})} + '\''">Eliminar Proveedor</button> </th>
     </tr>
 </th:block>
 </table>
