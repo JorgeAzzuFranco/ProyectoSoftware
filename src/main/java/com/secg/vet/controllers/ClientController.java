@@ -21,23 +21,17 @@ public class ClientController {
     @Autowired
     PetRepository petRepository;
 
-    @GetMapping("admin/addClient")
+    @GetMapping("/addClient")
     public String addClient(Model model){
         Client cliente = new Client();
-        List<Pet> mascotas = petRepository.findAll();
         model.addAttribute("client", cliente);
-        model.addAttribute("mascota",mascotas);
-
-        return "/admin/addClient";
+        return "addClient";
     }
 
-    //@PostMapping("admin/saveClient")
-    /*
-    public String saveProduct(@ModelAttribute Client client, Model model){
-        if(!clientService.clientExists(client)){
-            clientService.updateOrCreate(client);
-        }
-        //return "/main";
-    }*/
+    @PostMapping("/saveClient")
+    public String saveClient(@ModelAttribute Client client){
+        clientService.addClient(client);
+        return "/main";
+    }
 
 }

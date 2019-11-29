@@ -6,18 +6,15 @@
 </head>
 <body>
 
-<form method="post" th:object="${duenio}" th:action="@{/saveDuenio}">
+<form method="post" th:object="${client}" th:action="@{/saveClient}">
     <label>Nombre del dueño </label>
-    <input type="text" name="nombre_duenio" th:value="*{nombre_duenio}" placeholder="Nombre del dueño" minlength="10" maxlength="50" required/>
+    <input type="text" name="name" th:value="${client.name}" placeholder="Nombre del dueño"  maxlength="50" required/>
+    <br>
+    <label>Apellido del dueño </label>
+    <input type="text" name="last_name" th:value="${client.last_name}" placeholder="Apellido del dueño" maxlength="50" required/>
     <br>
     <label>Telefono de contacto </label>
-    <input type="text" name="telefono_principal" th:value="*{telefono_principal}" placeholder="Telefono" minlength="8" maxlength="8" required/>
-    <br>
-    <label>Mascota </label>
-    <select th:field="*{mascota}">
-        <option th:each="p : ${mascota}" th:value="${p.pk_mascota}" th:text="${p.nombre_mascota}">
-        </option>
-    </select>
+    <input type="text" name="phone" th:value="${client.phone}" placeholder="Telefono" minlength="8" maxlength="8" required/>
     <br>
     <button type="submit">Guardar Dueño</button>
 </form>
