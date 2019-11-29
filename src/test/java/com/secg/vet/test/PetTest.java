@@ -1,6 +1,7 @@
 package com.secg.vet.test;
 
 import com.secg.vet.domain.Pet;
+import com.secg.vet.services.ClientService;
 import com.secg.vet.services.PetService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +20,8 @@ public class PetTest {
 
     @Autowired
     PetService petService;
+    @Autowired
+    ClientService clientService;
 
     @Test
     public void findAllPetTest(){
@@ -31,20 +34,22 @@ public class PetTest {
     }
 
     @Test
-    public void findByNamePetTest() {
-        Pet test = new Pet("test", "test", "test", 23.0);
-        petService.addPet(test);
+    public void addPet(){
+        Pet pet = new Pet("test","test","test",0.0,null);
+        petService.addPet(pet);
         assertThat(petService.findByName("test")).isNotNull();
-        test = petService.findByName("test");
-        petService.deletePet(test);
+        pet = petService.findByName("test");
+        petService.deletePet(pet);
     }
 
     @Test
-    public void deletePet() {
-        Pet test = new Pet("test", "test", "test", 23.0);
-        petService.addPet(test);
-        test = petService.findByName("test");
-        petService.deletePet(test);
+    public void deletePet(){
+        Pet pet = new Pet("test","test","test",0.0,null);
+        petService.addPet(pet);
+        petService.deletePet(pet);
         assertThat(petService.findByName("test")).isNull();
     }
+
+    
+
 }

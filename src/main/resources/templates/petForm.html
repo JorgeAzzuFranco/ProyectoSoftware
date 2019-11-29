@@ -16,7 +16,7 @@
 <div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
     <br>x
     <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
-    <form action="/addPet" method="post">
+    <form action="/addPet" method="post" th:object="${pet}">
         <input style="float: left;" class="btn btn-success" type="submit" value="Crear mascota"/>
         <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/pet\''">
             Cancelar</button>
@@ -40,6 +40,14 @@
             <tr>
                 <th><label for="weight">Peso (lbs):</label></th>
                 <th><input style="width:100%;" type="number" id="weight" name="weight" th:value="${pet.weight}" required /></th>
+            </tr>
+            <tr>
+                <th><label>Dueño</label></th>
+                <th><select th:field="*{client}" style="width:100%;">
+                    <option th:each="p : ${client}" th:value="${p.pk_client}"
+                            th:text="${p.name}">
+                    </option>
+                </select></th>
             </tr>
         </table>
     </form></div><br><br><br><br></div>

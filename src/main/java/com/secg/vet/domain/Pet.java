@@ -24,33 +24,20 @@ public class Pet {
     private String race;
     @Column(name = "peso")
     private Double weight;
-    @OneToMany(mappedBy = "mascXMed", fetch = FetchType.LAZY)
-    private List<Medicine> medicineList;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="duenio_id")
+    private Client client;
 
     public Pet() {
     }
 
-    public Pet(String name, String description, String race, Double weight) {
+    public Pet(String name, String description, String race, Double weight, Client client) {
         this.name = name;
         this.description = description;
         this.race = race;
         this.weight = weight;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
-
-    public Double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
+        this.client = client;
     }
 
     public Integer getId() {
@@ -77,11 +64,31 @@ public class Pet {
         this.description = description;
     }
 
-    public List<Medicine> getMedicineList() {
-        return medicineList;
+    public String getRace() {
+        return race;
     }
 
-    public void setMedicineList(List<Medicine> medicineList) {
-        this.medicineList = medicineList;
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public String getClientName(){
+        return this.client.getName();
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
