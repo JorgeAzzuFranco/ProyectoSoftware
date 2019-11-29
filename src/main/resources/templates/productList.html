@@ -35,8 +35,10 @@
             <th th:text="${product.cantidad}"></th>
             <th th:text="${product.provider.nombre_proveedor}"></th>
             <th>
+                <div align="center">
                 <button class="btn btn-dark" th:onclick="'window.location.href = \'' + @{/admin/editProduct/?id={id}(id=${product.pk_almacen})} + '\''">Editar Producto</button>
                 <button class="btn btn-danger" th:onclick="'window.location.href = \'' + @{/admin/deleteProduct/?id={id}(id=${product.pk_almacen})} + '\''">Eliminar Producto</button>
+                </div>
             </th>
         </tr>
     </th:block>

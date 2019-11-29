@@ -4,25 +4,42 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Add Provider</title>
+    <title>Agregar Proveedor</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
 </head>
 <body>
-
-
-<button onclick="location.href='/admin/listProvider'">Cancelar</button>
-
-<form method="post" th:object="${provider}" th:action="@{/admin/saveProvider}">
-    <input type="hidden" name="pk_proveedor" th:value="*{pk_proveedor}"/>
-<label>Nombre Proveedor: </label>
-    <input type="text" name="nombre_proveedor" th:value="*{nombre_proveedor}" placeholder="Nombre" maxlength="200" required />
-<label>Descripción: </label>
-    <input type="text" name="descripcion" th:value="*{descripcion}" placeholder="Descripcion" maxlength="500" required />
-<label>Telefono principal: </label>
-    <input type="number" name="telefono_principal" th:value="*{telefono_principal}" max="999999999999" required />
-
-    <button type="submit">Guardar Proveedor</button>
-
-</form>
-
+<img src="https://imgbbb.com/images/2019/11/18/agregarlog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/18/wallpaperusers.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <form method="post" th:object="${provider}" th:action="@{/admin/saveProvider}">
+            <button style="float: left;" class="btn btn-success" type="submit">Guardar Proveedor</button>
+            <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/admin/listProvider\''">Cancelar</button>
+            <pre><br><br></pre>
+            <input type="hidden" name="pk_proveedor" th:value="*{pk_proveedor}"/>
+            <table class="table table-bordered table-responsive-md">
+                <tr>
+                    <th><label>Nombre Proveedor: </label></th>
+                    <th><input style="width:100%;" type="text" name="nombre_proveedor" th:value="*{nombre_proveedor}" placeholder="Nombre" maxlength="200" required/></th>
+                </tr>
+                <tr>
+                    <th><label>Descripción: </label></th>
+                    <th><input style="width:100%;" type="text" name="descripcion" th:value="*{descripcion}" placeholder="Descripcion" maxlength="500" required/></th>
+                </tr>
+                <tr>
+                    <th><label>Telefono principal: </label></th>
+                    <th><input style="width:100%;" type="number" name="telefono_principal" th:value="*{telefono_principal}" max="999999999999" required/></th>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+</div>
 </body>
 </html>
