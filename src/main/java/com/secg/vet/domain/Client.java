@@ -24,6 +24,12 @@ public class Client {
     public Client() {
     }
 
+    public Client(String name, String last_name, Integer phone) {
+        this.name = name;
+        this.last_name = last_name;
+        this.phone = phone;
+    }
+
     public int getPk_client() {
         return pk_client;
     }

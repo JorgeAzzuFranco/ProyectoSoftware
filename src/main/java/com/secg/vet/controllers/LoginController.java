@@ -11,15 +11,18 @@ public class LoginController {
     @Autowired
     UserService userService;
 
-    @GetMapping(value = {"/","/login"})
-    public ModelAndView login(){
+    @GetMapping(value = {"/", "/login"})
+    public ModelAndView login() {
 
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
         return mav;
     }
 
-
+    @GetMapping("/AccessDenied")
+    public String error(){
+        return "AccessDenied";
+    }
     @GetMapping("/home")
     public ModelAndView home(){
         ModelAndView mav = new ModelAndView();

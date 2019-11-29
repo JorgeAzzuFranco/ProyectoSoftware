@@ -59,8 +59,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/").and()
-                .exceptionHandling();
-                //.accessDeniedPage("/access-denied");
+                .exceptionHandling()
+                .accessDeniedPage("/AccessDenied");
     }
     @Override
     public void configure(WebSecurity web) throws Exception{
