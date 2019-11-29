@@ -35,6 +35,7 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.findByName(name);
     }
 
+    @Transactional
     @Override
     public void deleteClient(Client cliente) {
         clientRepository.delete(cliente);
