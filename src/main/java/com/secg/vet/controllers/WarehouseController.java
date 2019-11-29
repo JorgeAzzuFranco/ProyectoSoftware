@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -39,15 +40,28 @@ public class WarehouseController {
 
     @PostMapping("/saveProduct")
     public String saveProduct(@ModelAttribute Warehouse warehouse, Model model){
-        /*DUMMY PROVEEDOR
-        Provider proveedor = new Provider();
-        proveedor.setPk_proveedor(1);
-        warehouse.setProvider(proveedor);*/
-
         warehouseService.insertProduct(warehouse);
         List<Warehouse> warehouseList = warehouseService.listarProductos();
         model.addAttribute("warehouseList", warehouseList);
         return "productList";
+    }
+
+    @GetMapping("/admin/deleteProduct")
+    public String deleteProduct(Model model,@RequestParam(value="id",required = true) String id){
+        Warehouse warehouse = warehouseService.findOne(Integer.parseInt(id));
+        warehouseService.deleteProduct(warehouse);
+        List<Warehouse> warehouseList = warehouseService.listarProductos();
+        model.addAttribute("warehouseList", warehouseList);
+        return "productList";
+    }
+
+    @GetMapping("/admin/editProduct")
+    public String editProvider(Model model,@RequestParam(value="id",required = true) String id){
+        Warehouse warehouse = warehouseService.findOne(Integer.parseInt(id));
+        List<Provider> listaP = providerService.findAll();
+        model.addAttribute("warehouse", warehouse);
+        model.addAttribute("provider",listaP);
+        return "addProduct";
     }
 
 
