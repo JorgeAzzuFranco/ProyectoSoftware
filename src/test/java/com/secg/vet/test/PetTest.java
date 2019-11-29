@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -31,7 +32,7 @@ public class PetTest {
 
     @Test
     public void findByNamePetTest() {
-        Pet test = new Pet("test", "test", "test", Date.valueOf("2019-01-01"), 23.0);
+        Pet test = new Pet("test", "test", "test", 23.0);
         petService.addPet(test);
         assertThat(petService.findByName("test")).isNotNull();
         test = petService.findByName("test");
@@ -40,7 +41,7 @@ public class PetTest {
 
     @Test
     public void deletePet() {
-        Pet test = new Pet("test", "test", "test", Date.valueOf("2019-01-01"), 23.0);
+        Pet test = new Pet("test", "test", "test", 23.0);
         petService.addPet(test);
         test = petService.findByName("test");
         petService.deletePet(test);

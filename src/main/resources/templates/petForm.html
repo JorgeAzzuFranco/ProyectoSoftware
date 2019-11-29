@@ -14,7 +14,7 @@
 <img src="https://imgbbb.com/images/2019/11/18/agregarlog.md.png" alt="banner" border="0" width=100% height=150>
 <MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
 <div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
-    <br>
+    <br>x
     <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
     <form action="/addPet" method="post">
         <input style="float: left;" class="btn btn-success" type="submit" value="Crear mascota"/>
@@ -36,11 +36,6 @@
                 <th><label for="race">Raza:</label></th>
                 <th><input style="width:100%;" type="text" id="race" name="race" th:value="${pet.race}"
                            required minlength="1" maxlength="50"/></th>
-            </tr>
-            <tr>
-                <th><label for="birthDate">Fecha de nacimiento:</label></th>
-                <th><input style="width:100%;" type="date" id="birthDate" name="dateUnpatterned" th:value="${pet.birthDate}"
-                           required/></th>
             </tr>
             <tr>
                 <th><label for="weight">Peso (lbs):</label></th>

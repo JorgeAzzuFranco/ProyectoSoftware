@@ -39,9 +39,7 @@ public class PetController {
     }
 
     @PostMapping("/addPet")
-    public String addPet(@ModelAttribute Pet pet, Model model,
-                         @RequestParam("dateUnpatterned") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
-        pet.setBirthDate(date);
+    public String addPet(@ModelAttribute Pet pet, Model model) {
         petService.addPet(pet);
         model.addAttribute("petList", petService.findAll());
         return "pet";

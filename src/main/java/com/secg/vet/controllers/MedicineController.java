@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class MedicineController {
+public class    MedicineController {
 
     @Autowired
     MedicineService medicineService;

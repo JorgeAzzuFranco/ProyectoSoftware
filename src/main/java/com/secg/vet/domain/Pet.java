@@ -1,6 +1,10 @@
 package com.secg.vet.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +22,6 @@ public class Pet {
     private String description;
     @Column(name="raza")
     private String race;
-    @Column(name="fnac")
-    private Date birthDate;
     @Column(name = "peso")
     private Double weight;
     @OneToMany(mappedBy = "mascXMed", fetch = FetchType.LAZY)
@@ -28,11 +30,10 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(String name, String description, String race, Date birthDate, Double weight) {
+    public Pet(String name, String description, String race, Double weight) {
         this.name = name;
         this.description = description;
         this.race = race;
-        this.birthDate = birthDate;
         this.weight = weight;
     }
 
@@ -42,14 +43,6 @@ public class Pet {
 
     public void setRace(String race) {
         this.race = race;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public Double getWeight() {
