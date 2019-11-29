@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client,Integer>{
-    @Query(value = "SELECT * FROM DUENIO WHERE nombre = :name", nativeQuery = true)
+    @Query(value = "SELECT * FROM CLIENT WHERE nombre = :name", nativeQuery = true)
     Client findByName(@Param("name") String name);
 
 }
