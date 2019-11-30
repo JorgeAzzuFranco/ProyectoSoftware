@@ -35,6 +35,7 @@ public class PetServiceImpl implements PetService{
         return petRepository.findByName(name);
     }
 
+    @Transactional
     @Override
     public void deletePet(Pet pet) {
         petRepository.delete(pet);

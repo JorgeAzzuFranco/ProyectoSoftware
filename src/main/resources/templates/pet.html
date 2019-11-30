@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <meta charset="UTF-8">
-    <title>Pets</title>
+    <title>Mascotas</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mascotas</h1>
-
+<img src="https://imgbbb.com/images/2019/11/17/mascotaslog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
     <br>
-
-    <button th:onclick="'window.location.href=\'/petForm\''">A&ntilde;adir</button>
-    <table>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+    <button style="float: left;" type="button" class="btn btn-info" th:onclick="'window.location.href=\'/petForm\''">A&ntilde;adir</button>
+        <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/login\''">Cerrar Sesi&oacute;n</button>
+        <pre><br><br></pre>
+    <table class="table table-bordered table-responsive-md">
         <thead>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Duenio</th>
-        <th>Razon</th>
-        <th>Ver</th>
+        <th><div align="center">Nombre</div></th>
+        <th><div align="center">Due&ntilde;io</div></th>
+        <th><div align="center">Raz&oacute;n</div></th>
+        <th><div align="center">Ver</div></th>
+        <th><div align="center">Modificar</div></th>
+        <th><div align="center">Eliminar</div></th>
         </thead>
         <th:block th:each="pet, row: ${petList}">
             <tr>
-                <th th:text="${pet.id}"></th>
                 <th th:text="${pet.name}"></th>
-                <th> Duenio </th>
+                <th th:text="${pet.client.name}"></th>
                 <th th:text="${pet.description}"></th>
-                <th><button th:onclick="'window.location.href=\'/petDetails?id=' + ${pet.id} + '\''">Detalles</button></th>
+                <th align="center"><div align="center"><button type="button" class="btn btn-dark"
+                th:onclick="'window.location.href=\'/petDetails?id=' + ${pet.id} + '\''">Detalles</button></div></th>
+                <th align="center"><div align="center"><button type="button" class="btn btn-dark"
+                th:onclick="'window.location.href=\'/modifyPetForm?id=' + ${pet.id} + '\''">Modificar</button></div></th>
+                <th align="center"><div align="center"><button type="button" class="btn btn-dark"
+                th:onclick="'window.location.href=\'/deletePet?id=' + ${pet.id} + '\''">Borrar</button></div></th>
             </tr>
         </th:block>
     </table>
+    </div>
+    <br><br><br>
+</div>
 </body>
 </html>

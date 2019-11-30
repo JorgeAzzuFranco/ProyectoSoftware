@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class MedicineController {
+public class    MedicineController {
 
     @Autowired
     MedicineService medicineService;
@@ -36,7 +36,7 @@ public class MedicineController {
     }
 
     @PostMapping("/addMedicine")
-    public String addMedicine(String id, String medicine, String quantity, String dose, Model model){
+    public String addMedicine(@RequestParam("id") String id, String medicine, String quantity, String dose, Model model){
         medicineService.addMedicine(Integer.parseInt(id), medicine, Integer.parseInt(quantity), dose);
         model.addAttribute("pet", petService.findOne(Integer.parseInt(id)));
         return "petDetails";
@@ -49,10 +49,4 @@ public class MedicineController {
         model.addAttribute("pet", petService.findOne(Integer.parseInt(id)));
         return "petDetails";
     }
-
-    @GetMapping("/testRead")
-    public List<Medicine> medicineTest(){
-        return medicineService.findAll();
-    }
-
 }

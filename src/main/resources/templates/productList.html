@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <meta charset="UTF-8">
-    <title>Warehouse</title>
+    <title>Lista de Productos</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
 </head>
 <body>
-
-<table>
+<img src="https://imgbbb.com/images/2019/11/18/productlog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/18/wallpaperproduct.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <button style="float: left; margin-right: 10px" type="button" class="btn btn-info" value="Insert new Product" onclick="location.href='/addProduct'">A&ntilde;adir Producto</button>
+        <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/login\''">Cerrar Sesi&oacute;n</button>
+        <pre><br><br></pre>
+<table class="table table-bordered table-responsive-md">
     <thead>
     <th>sku</th>
     <th>Nombre</th>
     <th>Cantidad</th>
     <th>Proveedor</th>
+    <th>Acciones</th>
     </thead>
     <th:block th:each="product, row: ${warehouseList}">
         <tr>
@@ -20,12 +35,14 @@
             <th th:text="${product.nombre_producto}"></th>
             <th th:text="${product.cantidad}"></th>
             <th th:text="${product.provider.nombre_proveedor}"></th>
+            <th>
+                <div align="center">
+                <button class="btn btn-dark" th:onclick="'window.location.href = \'' + @{/admin/editProduct/?id={id}(id=${product.pk_almacen})} + '\''">Editar Producto</button>
+                <button class="btn btn-danger" th:onclick="'window.location.href = \'' + @{/admin/deleteProduct/?id={id}(id=${product.pk_almacen})} + '\''">Eliminar Producto</button>
+                </div>
+            </th>
         </tr>
     </th:block>
-</table>
-
-<input type="button" value="Insert new Product" onclick="location.href='/addProduct'"/>
-
-
+</table></div><br><br></div>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <meta charset="UTF-8">
+    <title>Agregar Dueño</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
+</head>
+<body>
+<img src="https://imgbbb.com/images/2019/11/18/agregarlog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
+    <br>x
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <form method="post" th:object="${client}" th:action="@{/saveClient}">
+            <input style="float: left;" class="btn btn-success" type="submit" value="Crear Cliente"/>
+            <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/viewClient\''">
+                Cancelar</button>
+            <pre><br><br></pre>
+            <table class="table table-bordered table-responsive-md">
+                <tr>
+                    <th><label for="name">Nombre:</label></th>
+                    <th><input type="text" name="name" th:value="${client.name}" placeholder="Nombre del dueño" minlength="1"  maxlength="50" required/></th>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Apellido del dueño </label>
+                    </th>
+                    <th>
+                        <input type="text" name="last_name" th:value="${client.last_name}" placeholder="Apellido del dueño" minlength="1" maxlength="50" required/>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Telefono de contacto </label>
+                    </th>
+                    <th>
+                        <input type="text" name="phone" th:value="${client.phone}" placeholder="Telefono" minlength="8" maxlength="8" required/>
+                    </th>
+                </tr>
+            </table>
+        </form></div><br><br><br><br></div>
+</body>
+</html>

@@ -2,11 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <meta charset="UTF-8">
     <title>main</title>
 </head>
 <body>
-    Hola desde main
-    ISO - 2019
+<img src="https://imgbbb.com/images/2019/11/17/mascotaslog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/11/wallpaperpet.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <button style="float: left;" type="button" class="btn btn-info" onclick="location.href='/admin/homeadmin'">Admin</button>
+        <br><br>
+        <button style="float: left;" type="button" class="btn btn-info" onclick="location.href='/secretary/homesecretary'">Secretaria</button>
+        <br><br>
+        <button style="float: left;" type="button" class="btn btn-info" onclick="location.href='/vet/homevet'">Veterinario</button>
+        <br><br>
+        <button style="float: left;" type="button" class="btn btn-info" onclick="location.href='/warehouse/homewarehouse'">Encargado de Bodega</button>
+        <br><br><br>
+        <br><br>
+    </div><br><br><br><br><br><br></div>
 </body>
 </html>

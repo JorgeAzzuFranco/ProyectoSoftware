@@ -4,6 +4,7 @@ package com.secg.vet.test;
 import com.secg.vet.domain.Provider;
 import com.secg.vet.domain.Warehouse;
 import com.secg.vet.services.WarehouseService;
+import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class WarehouseTest {
     @Test
     public void getAllProductsTest(){
         assertThat(warehouseService.listarProductos()).isNotEmpty();
+    }
+
+    @Test
+    public void findOneProductTest() {
+        AssertionsForClassTypes.assertThat(warehouseService.findOne(1)).isNotNull();
     }
 
     @Test

@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <meta charset="UTF-8">
     <title>A&ntilde;adir Medicina</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
 </head>
 <body>
-    <h1>A&ntilde;adir Medicina a <span th:text="${pet.name}"></span></h1>
-    <form method="post" action="/addMedicine">
-        <input type="hidden" name="idPet" th:value="${pet.id}">
-        <label for="medicine">Nombre de medicamento </label>
-        <input type="text" id="medicine" name="medicine"/>
+<img src="https://imgbbb.com/images/2019/11/18/agregarlog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <form method="post" action="/addMedicine">
+            <input style="float: left;" class="btn btn-success" type="submit" th:value="Guardar"/>
+            <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/pet\''">Cancelar</button>
+            <pre><br><br></pre>
+            <table class="table table-bordered table-responsive-md">
+                <tr>
+                    <th><label for="medicine">Nombre de medicamento </label></th>
+                    <th><input style="width:100%;" type="text" id="medicine" name="medicine" required minlength="1" maxlength="50"/></th>
+                </tr>
+                <tr>
+                    <th><label for="quantity">Cantidad </label></th>
+                    <th><input style="width:100%;" type="number" id="quantity" name="quantity" min="1" required></th>
+                </tr>
+                <tr>
+                    <th><label for="dose">Dosis </label></th>
+                    <th><select style="width:100%;" name="dose" id="dose" required>
+                        <option value="cada 4 horas">Cada 4 horas</option>
+                        <option value="cada 6 horas">Cada 6 horas</option>
+                        <option value="cada 8 horas">Cada 8 horas</option>
+                        <option value="cada 12 horas">Cada 12 horas</option>
+                        <option value="Una vez al d&iacute;a"> Una vez al d&iacute;a</option>
+                        <option value="Una vez a la semana">Una vez a la semana</option>
+                    </select></th>
+                </tr>
+            </table>
+            <input type="hidden" name="id" th:value="${pet.id}">
+        </form>
         <br>
-        <label for="quantity">Cantidad </label>
-        <input type="number" id="quantity" name="quantity">
-        <br>
-        <label for="dose">Dosis </label>
-        <select name="dose" id="dose">
-            <option value="Una vez al d&iacute;a"> Una vez al d&iacute;a</option>
-            <option value="Dos veces al d&iacute;a">Dos veces al d&iacute;a</option>
-            <option value="cada 4 horas">Cada 4 horas</option>
-            <option value="cada 6 horas">Cada 6 horas</option>
-            <option value="cada 8 horas">Cada 8 horas</option>
-        </select>
-        <br>
-        <input type="submit" th:value="Guardar"/>
-    </form>
-    <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+        <script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script></div>
+    <table class="table table-bordered table-responsive-md">
+        <tr>
+            <th><h1 style="width:100%;" align="center">A&ntilde;adir Medicina a <span th:text="${pet.name}"></span></h1></th>
+        </tr>
+    </table>
+    <br><br><br><br></div>
 </body>
 </html>

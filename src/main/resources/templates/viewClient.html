@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+    <style>
+        .table {
+            background-color: #E1FFFD;
+        }
+    </style>
+</head>
+<body>
+<img src="https://imgbbb.com/images/2019/11/17/mascotaslog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-image: url(https://imgbbb.com/images/2019/11/17/wallpaperpets.md.png); height: 100%; width: 100%;">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <button style="float: left;" type="button" class="btn btn-info" th:onclick="'window.location.href=\'/addClient\''">A&ntilde;adir</button>
+        <button style="float: right;" type="button" class="btn btn-danger" th:onclick="'window.location.href=\'/login\''">Cerrar Sesi&oacute;n</button>
+        <pre><br><br></pre>
+        <table class="table table-bordered table-responsive-md">
+            <thead>
+            <th><div align="center">Nombre</div></th>
+            <th><div align="center">Apellido</div></th>
+            <th><div align="center">Telefono</div></th>
+            </thead>
+            <th:block th:each="client, row: ${clientList}">
+                <tr>
+                    <th th:text="${client.name}"></th>
+                    <th th:text="${client.last_name}"></th>
+                    <th th:text="${client.phone}"></th>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+    <br><br><br>
+</div>
+</body>
+</html>

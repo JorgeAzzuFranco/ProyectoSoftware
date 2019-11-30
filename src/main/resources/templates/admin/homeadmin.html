@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<img src="https://imgbbb.com/images/2019/11/12/petslog.md.png" alt="banner" border="0" width=100% height=150>
+<MARQUEE SCROLLDELAY = 100 BGCOLOR="#84C0CD" BEHAVIOR=ALTERNATE>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</MARQUEE>
+<div style="background-color: #E2FFFD">
+    <br>
+    <div style='margin-top:0;margin-left:150px;margin-right:150px;'>
+        <div style="width:100%;">
+            <br>
+            <button style="float: right;" type="button" class="btn btn-warning" th:onclick="'window.location.href=\'/admin/addProvider\''"><b><FONT SIZE=5>&nbsp &nbsp Agregar &nbsp Proveedor &nbsp &nbsp</FONT></b></button><br><br><br>
+            <button style="float: right;" type="button" class="btn btn-warning" th:onclick="'window.location.href=\'/admin/addUser\''"><b><FONT SIZE=5>&nbsp &nbsp Agregar &nbsp Usuario &nbsp &nbsp</FONT></b></button><br><br><br>
+            <button style="float: right;" type="button" class="btn btn-info" th:onclick="'window.location.href=\'/admin/listProvider\''"><b><FONT SIZE=5>&nbsp &nbsp Ver &nbsp Proveedores &nbsp &nbsp</FONT></b></button><br><br><br>
+            <button style="float: right;" type="button" class="btn btn-info"><b><FONT SIZE=5>&nbsp &nbsp Ver &nbsp Usuarios &nbsp &nbsp</FONT></b></button><br><br><br>
+        </div>
+    </div>
+    <img src="https://imgbbb.com/images/2019/11/30/downadmin.md.png" alt="banner" border="0" width=100% height=140>
+</div>
+</body>
+</html>

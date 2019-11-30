@@ -1,7 +1,9 @@
 package com.secg.vet.controllers;
 
+import com.secg.vet.domain.Client;
 import com.secg.vet.domain.Pet;
 import com.secg.vet.services.PetService;
+import com.secg.vet.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ public class PetController {
 
     @Autowired
     PetService petService;
+
+    @Autowired
+    ClientRepository clientRepository;
 
     @GetMapping("/pet")
     public String pet(Model model){
@@ -34,15 +39,31 @@ public class PetController {
     @GetMapping("/petForm")
     public String petFrom(Model model){
         Pet pet = new Pet();
-        model.addAttribute(pet);
+        List<Client> client = clientRepository.findAll();
+        model.addAttribute("pet",pet);
+        model.addAttribute("client",client);
         return "petForm";
     }
 
     @PostMapping("/addPet")
-    public String addPet(@ModelAttribute Pet pet, Model model,
-                         @RequestParam("dateUnpatterned") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
-        pet.setBirthDate(date);
+    public String addPet(@ModelAttribute Pet pet, Model model) {
         petService.addPet(pet);
+        model.addAttribute("petList", petService.findAll());
+        return "pet";
+    }
+
+    @GetMapping("/modifyPetForm")
+    public String modifyMedicine(@RequestParam("id") String id, Model model){
+        Pet pet = petService.findOne(Integer.parseInt(id));
+        model.addAttribute("pet",pet);
+        List<Client> client = clientRepository.findAll();
+        model.addAttribute("client",client);
+        return "petForm";
+    }
+
+    @GetMapping("/deletePet")
+    public String deletePet(@RequestParam("id") String id, Model model){
+        petService.deletePet(petService.findOne(Integer.parseInt(id)));
         model.addAttribute("petList", petService.findAll());
         return "pet";
     }

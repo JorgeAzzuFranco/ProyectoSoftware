@@ -5,6 +5,7 @@ import com.secg.vet.repositories.WarehouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,10 +25,17 @@ public class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
+    public Warehouse findOne(Integer id) {
+        return warehouseRepository.getOne(id);
+    }
+
+    @Transactional
+    @Override
     public void insertProduct(Warehouse warehouse) {
         warehouseRepository.save(warehouse);
     }
 
+    @Transactional
     @Override
     public void deleteProduct(Warehouse warehouse) {
         warehouseRepository.delete(warehouse);

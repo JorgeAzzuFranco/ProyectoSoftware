@@ -28,8 +28,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Value("select u.username, r.rol from usuario u inner join role r on u.id_role = r.id_role where u.username=?")
     private String roleQuery;
 
-//    @Autowired
-//    private CustomLoginSuccesHandler customLoginSuccesHandler;
+    @Autowired
+    private CustomLoginSuccesHandler customLoginSuccesHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
@@ -50,8 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable().formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error=true")
-                //.successHandler(customLoginSuccessHandler )
-                .defaultSuccessUrl("/home")
+                .successHandler(customLoginSuccesHandler)
+                //.defaultSuccessUrl("/home")
                 .usernameParameter("username")
                 .passwordParameter("pass")
                 .and()
@@ -59,8 +59,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/").and()
-                .exceptionHandling();
-                //.accessDeniedPage("/access-denied");
+                .exceptionHandling()
+                .accessDeniedPage("/AccessDenied");
     }
     @Override
     public void configure(WebSecurity web) throws Exception{
