@@ -57,7 +57,7 @@ public class PetTest {
         pet = petService.findByName("test");
         pet.setName("testito");
         petService.addPet(pet);
-        assertThat(petService.findByName("test").getName()).isEqualTo(pet.getName());
+        assertThat(petService.findByName("testito").getName()).isEqualTo(pet.getName());
         petService.deletePet(pet);
     }
 
