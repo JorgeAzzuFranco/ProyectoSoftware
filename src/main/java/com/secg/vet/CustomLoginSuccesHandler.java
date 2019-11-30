@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Configuration
 public class CustomLoginSuccesHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     @Override
@@ -38,10 +39,14 @@ public class CustomLoginSuccesHandler extends SimpleUrlAuthenticationSuccessHand
             roles.add(a.getAuthority());
         }
         if(roles.contains("ADMIN")){
-            url="/admin";
+            url="/admin/listProvider";
 
         }else if(roles.contains("USER")){
             url = "/home";
+        }else if(roles.contains("VET")){
+            url= "/vet/homevet";
+        }else if(roles.contains("SECRETARY")){
+            url= "/secretary/homesecretary";
         }
             return url;
 

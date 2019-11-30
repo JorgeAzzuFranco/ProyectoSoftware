@@ -11,6 +11,11 @@ public class LoginController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/vet/homevet")
+    public String vetMap(){
+        return "/vet/homevet";
+    }
+
     @GetMapping(value = {"/", "/login"})
     public ModelAndView login() {
 
