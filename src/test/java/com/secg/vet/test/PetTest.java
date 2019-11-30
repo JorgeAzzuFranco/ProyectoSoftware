@@ -50,6 +50,6 @@ public class PetTest {
         assertThat(petService.findByName("test")).isNull();
     }
 
-    
+
 
 }

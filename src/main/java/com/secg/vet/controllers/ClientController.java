@@ -2,6 +2,7 @@ package com.secg.vet.controllers;
 
 import com.secg.vet.domain.Pet;
 import com.secg.vet.domain.Client;
+import com.secg.vet.domain.Warehouse;
 import com.secg.vet.repositories.PetRepository;
 import com.secg.vet.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,13 @@ public class ClientController {
     public String saveClient(@ModelAttribute Client client){
         clientService.addClient(client);
         return "/main";
+    }
+
+    @GetMapping("/viewClient")
+    public String viewClient(Model model){
+        List<Client> clientList = clientService.findAll();
+        model.addAttribute("clientList", clientList);
+        return "viewClient";
     }
 
 }
