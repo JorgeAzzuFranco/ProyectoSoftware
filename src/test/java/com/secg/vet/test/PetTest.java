@@ -50,6 +50,15 @@ public class PetTest {
         assertThat(petService.findByName("test")).isNull();
     }
 
-    
+    @Test
+    public void modifyTest(){
+        Pet pet = new Pet("test","test","test",0.0,null);
+        petService.addPet(pet);
+        pet = petService.findByName("test");
+        pet.setName("testito");
+        petService.addPet(pet);
+        assertThat(petService.findByName("testito").getName()).isEqualTo(pet.getName());
+        petService.deletePet(pet);
+    }
 
 }
