@@ -51,4 +51,20 @@ public class PetController {
         model.addAttribute("petList", petService.findAll());
         return "pet";
     }
+
+    @GetMapping("/modifyPetForm")
+    public String modifyMedicine(@RequestParam("id") String id, Model model){
+        Pet pet = petService.findOne(Integer.parseInt(id));
+        model.addAttribute("pet",pet);
+        List<Client> client = clientRepository.findAll();
+        model.addAttribute("client",client);
+        return "petForm";
+    }
+
+    @GetMapping("deletePet")
+    public String deletePet(@RequestParam("id") String id, Model model){
+        petService.deletePet(petService.findOne(Integer.parseInt(id)));
+        model.addAttribute("petList", petService.findAll());
+        return "pet";
+    }
 }
