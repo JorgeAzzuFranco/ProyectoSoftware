@@ -34,7 +34,7 @@ public class UserTest {
         user.setUsername("Test");
         user.setPassword(encoder.encode("Test"));
         Rol rol = new Rol();
-        rol.setPk_role(1);
+        rol.setPk_role(2);
         user.setRol(rol);
         userService.updateOrCreate(user);
         AssertionsForClassTypes.assertThat(userService.findOneByUsername("Test")).isNotNull();
@@ -50,7 +50,7 @@ public class UserTest {
         user.setUsername("Test");
         user.setPassword(encoder.encode("Test"));
         Rol rol = new Rol();
-        rol.setPk_role(1);
+        rol.setPk_role(2);
         user.setRol(rol);
         userService.updateOrCreate(user);
         User existingUser = userService.findOneByUsername("Test");
@@ -69,7 +69,7 @@ public class UserTest {
         user.setUsername("Test");
         user.setPassword(encoder.encode("Test"));
         Rol rol = new Rol();
-        rol.setPk_role(1);
+        rol.setPk_role(2);
         user.setRol(rol);
         userService.updateOrCreate(user);
         AssertionsForClassTypes.assertThat(userService.findOneByUsername("Test")).isNotNull();
@@ -85,7 +85,7 @@ public class UserTest {
         user.setUsername("Test");
         user.setPassword(encoder.encode("Test"));
         Rol rol = new Rol();
-        rol.setPk_role(1);
+        rol.setPk_role(2);
         user.setRol(rol);
         userService.updateOrCreate(user);
         assertThat(userService.userExists(user)).isTrue();
@@ -101,7 +101,7 @@ public class UserTest {
         user.setUsername("Test");
         user.setPassword(encoder.encode("Test"));
         Rol rol = new Rol();
-        rol.setPk_role(1);
+        rol.setPk_role(2);
         user.setRol(rol);
         userService.updateOrCreate(user);
         AssertionsForClassTypes.assertThat(userService.findOneByUsername("Test")).isNotNull();

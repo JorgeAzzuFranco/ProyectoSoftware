@@ -32,7 +32,7 @@ public class ClientController {
     @PostMapping("/saveClient")
     public String saveClient(@ModelAttribute Client client){
         clientService.addClient(client);
-        return "/main";
+        return "/viewClient";
     }
 
     @GetMapping("/viewClient")
