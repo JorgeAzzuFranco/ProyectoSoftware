@@ -25,6 +25,10 @@ public class Pet {
     @Column(name = "peso")
     private Double weight;
 
+    @OneToMany(mappedBy = "mascXMed", fetch = FetchType.LAZY)
+    private List<Medicine> medicineList;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="duenio_id")
     private Client client;
@@ -90,5 +94,13 @@ public class Pet {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public List<Medicine> getMedicineList() {
+        return medicineList;
+    }
+
+    public void setMedicineList(List<Medicine> medicineList) {
+        this.medicineList = medicineList;
     }
 }

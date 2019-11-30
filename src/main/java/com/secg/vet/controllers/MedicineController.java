@@ -36,7 +36,7 @@ public class    MedicineController {
     }
 
     @PostMapping("/addMedicine")
-    public String addMedicine(String id, String medicine, String quantity, String dose, Model model){
+    public String addMedicine(@RequestParam("id") String id, String medicine, String quantity, String dose, Model model){
         medicineService.addMedicine(Integer.parseInt(id), medicine, Integer.parseInt(quantity), dose);
         model.addAttribute("pet", petService.findOne(Integer.parseInt(id)));
         return "petDetails";
