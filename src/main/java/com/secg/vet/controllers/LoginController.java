@@ -15,6 +15,18 @@ public class LoginController {
     public String vetMap(){
         return "/vet/homevet";
     }
+    @GetMapping("/admin/homeadmin")
+    public String adminMap(){
+        return "/admin/homeadmin";
+    }
+    @GetMapping("/warehouse/homewarehouse")
+    public String warehouseMap(){
+        return "/warehouse/homewarehouse";
+    }
+    @GetMapping("/secretary/homesecretary")
+    public String secretaryMap(){
+        return "/secretary/homesecretary";
+    }
 
     @GetMapping(value = {"/", "/login"})
     public ModelAndView login() {

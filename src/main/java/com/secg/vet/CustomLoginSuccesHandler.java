@@ -39,10 +39,10 @@ public class CustomLoginSuccesHandler extends SimpleUrlAuthenticationSuccessHand
             roles.add(a.getAuthority());
         }
         if(roles.contains("ADMIN")){
-            url="/admin/listProvider";
+            url="/admin/homeadmin";
 
-        }else if(roles.contains("USER")){
-            url = "/home";
+        }else if(roles.contains("WADMIN")){
+            url = "/warehouse/homewarehouse";
         }else if(roles.contains("VET")){
             url= "/vet/homevet";
         }else if(roles.contains("SECRETARY")){
