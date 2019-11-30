@@ -49,10 +49,4 @@ public class    MedicineController {
         model.addAttribute("pet", petService.findOne(Integer.parseInt(id)));
         return "petDetails";
     }
-
-    @GetMapping("/testRead")
-    public List<Medicine> medicineTest(){
-        return medicineService.findAll();
-    }
-
 }

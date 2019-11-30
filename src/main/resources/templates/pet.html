@@ -33,7 +33,12 @@
                 <th th:text="${pet.name}"></th>
                 <th th:text="${pet.client.name}"></th>
                 <th th:text="${pet.description}"></th>
-                <th align="center"><div align="center"><button type="button" class="btn btn-dark" th:onclick="'window.location.href=\'/petDetails?id=' + ${pet.id} + '\''">Detalles</button></div></th>
+                <th align="center"><div align="center"><button type="button" class="btn btn-dark"
+                th:onclick="'window.location.href=\'/petDetails?id=' + ${pet.id} + '\''">Detalles</button></div></th>
+                <th align="center"><div align="center"><button type="button" class="btn btn-dark"
+                th:onclick="'window.location.href=\'/modifyPetForm?id=' + ${pet.id} + '\''">Modificar</button></div></th>
+                <th align="center"><div align="center"><button type="button" class="btn btn-dark"
+                th:onclick="'window.location.href=\'/deletePet?id=' + ${pet.id} + '\''">Borrar</button></div></th>
             </tr>
         </th:block>
     </table>
