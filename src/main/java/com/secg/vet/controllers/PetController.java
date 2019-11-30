@@ -61,7 +61,7 @@ public class PetController {
         return "petForm";
     }
 
-    @GetMapping("deletePet")
+    @GetMapping("/deletePet")
     public String deletePet(@RequestParam("id") String id, Model model){
         petService.deletePet(petService.findOne(Integer.parseInt(id)));
         model.addAttribute("petList", petService.findAll());
